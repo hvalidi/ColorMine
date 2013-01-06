@@ -1,23 +1,22 @@
-﻿namespace ColorMine.ColorSpaces
+﻿using System;
+using System.Drawing;
+
+namespace ColorMine.ColorSpaces
 {
     public class Lab : ColorSpace
     {
-        public double L
+        public double L { get { return this[0]; } set { this[0] = value; } }
+        public double A { get { return this[1]; } set { this[1] = value; } }
+        public double B { get { return this[2]; } set { this[2] = value; } }
+
+        public override void Initialize(Color color)
         {
-            get { return this[0]; }
-            set { this[0] = value; }
+            throw new NotImplementedException();
         }
 
-        public double A
+        public override Color ToColor()
         {
-            get { return this[1]; }
-            set { this[1] = value; }
-        }
-
-        public double B
-        {
-            get { return this[2]; }
-            set { this[2] = value; }
+            throw new NotImplementedException();
         }
     }
 }

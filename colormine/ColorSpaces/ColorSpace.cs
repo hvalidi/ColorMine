@@ -1,19 +1,24 @@
 ﻿using System;
+using System.Drawing;
 
 namespace ColorMine.ColorSpaces
 {
     public abstract class ColorSpace : IColorSpace
     {
+        public abstract void Initialize(Color color);
+        public abstract Color ToColor();
+        
         public double Compare(IColorSpace compareToValue, ComparisonAlgorithm algorithm)
         {
             return algorithm(this, compareToValue);
         }
 
-        public T To<T>() where T:IColorSpace
+        public T To<T>() where T : IColorSpace, new()
         {
-            throw new NotImplementedException("Need to do color conversions here");
+            var newColorSpace = new T();
+            newColorSpace.Initialize(this.ToColor());
+            return newColorSpace;
         }
-
         private const int DataSize = 3;
         private readonly double[] _data = new double[DataSize];
         public override string ToString()
@@ -23,6 +28,7 @@ namespace ColorMine.ColorSpaces
 
         public override int GetHashCode()
         {
+            // TODO This doesn't make any sense, should behave like a value type
             return _data.ToString().GetHashCode();
         }
 

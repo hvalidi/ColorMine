@@ -11,7 +11,7 @@ namespace Test.ColorMine.Utility
             [TestMethod]
             public void ReturnsTrueForCloseNumbers()
             {
-                Assert.IsTrue(.3333.BasicallyEqualTo(1.0/3,.001));
+                Assert.IsTrue(.333.BasicallyEqualTo(1.0/3,.01));
             }
 
             [TestMethod]
@@ -23,7 +23,7 @@ namespace Test.ColorMine.Utility
             [TestMethod]
             public void ReturnsTrueForCloseNumbersWithDefaultPrecision()
             {
-                Assert.IsTrue(.3333.BasicallyEqualTo(1.0 / 3));
+                Assert.IsTrue(.33333.BasicallyEqualTo(1.0 / 3));
             }
 
             [TestMethod]

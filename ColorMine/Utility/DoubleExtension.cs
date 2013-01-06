@@ -4,7 +4,7 @@ namespace ColorMine.Utility
 {
     public static class DoubleExtension
     {
-        const double DefaultPrecision = .001;
+        const double DefaultPrecision = .0001;
         internal static bool BasicallyEqualTo(this double a, double b)
         {
             return a.BasicallyEqualTo(b, DefaultPrecision);

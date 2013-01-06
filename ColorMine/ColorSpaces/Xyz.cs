@@ -23,7 +23,11 @@ namespace ColorMine.ColorSpaces
 
         public override Color ToColor()
         {
-            throw new NotImplementedException();
+            var r = 2.5623*X + (-1.1661)*Y + (-0.3962)*Z;
+            var g = (-1.0215)*X + 1.9778*Y + 0.0437*Z;
+            var b = 0.0752*X + (-0.2562)*Y + 1.1810*Z;
+
+            return Color.FromArgb(255, (int)r, (int)g, (int)b);
         }
 
         private static double pivotRgb(double n)

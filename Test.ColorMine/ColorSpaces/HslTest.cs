@@ -4,7 +4,7 @@ using ColorMine.ColorSpaces;
 
 namespace Test.ColorMine.ColorSpaces
 {
-    public class HslTest
+    public class HslTest : ColorSpaceTest
     {
         [TestClass]
         public class H
@@ -120,9 +120,12 @@ namespace Test.ColorMine.ColorSpaces
                     L = knownColor.GetBrightness()
                 };
 
-                Assert.AreEqual(knownColor.GetHue(),target.H);
-                Assert.AreEqual(knownColor.GetSaturation(), target.S);
-                Assert.AreEqual(knownColor.GetBrightness(), target.L);
+                var actual = target.ToColor();
+
+
+                Assert.IsTrue(CloseEnough(knownColor.R, actual.R));
+                Assert.IsTrue(CloseEnough(knownColor.G, actual.G));
+                Assert.IsTrue(CloseEnough(knownColor.B, actual.B));
             }
 
             [TestMethod]

@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorSpaces\ColorSpace.cs" />
+    <Compile Include="ColorSpaces\Comparisons\DeltaEComparison.cs" />
+    <Compile Include="ColorSpaces\Comparisons\IColorSpaceComparison.cs" />
     <Compile Include="ColorSpaces\DoubleExtension.cs" />
     <Compile Include="ColorSpaces\IColorSpace.cs" />
     <Compile Include="ColorSpaces\Lab.cs" />

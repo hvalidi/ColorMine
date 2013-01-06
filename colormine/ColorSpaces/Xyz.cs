@@ -2,19 +2,19 @@
 {
     internal class Xyz : ColorSpace
     {
-        private double X
+        public double X
         {
             get { return this[0]; }
             set { this[0] = value; }
         }
 
-        private double Y
+        public double Y
         {
             get { return this[1]; }
             set { this[1] = value; }
         }
 
-        private double Z
+        public double Z
         {
             get { return this[2]; }
             set { this[2] = value; }

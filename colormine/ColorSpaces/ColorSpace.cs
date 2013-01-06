@@ -2,19 +2,11 @@
 
 namespace ColorMine.ColorSpaces
 {
-    internal abstract class ColorSpace : IColorSpace
+    public abstract class ColorSpace : IColorSpace
     {
-        /// <summary>Determine how close two ColorTuples are to each other using the distance formula in three dimensional space.</summary>
-        /// <param name="other">Other IColorSpace to compare to</param>
-        /// <returns>the distance in 3d space as double</returns>
-        public double Compare<T>(IColorSpace other) where T:IColorSpace
+        public double Compare(IColorSpace compareToValue, ComparisonAlgorithm algorithm)
         {
-            // first get them to the same space (T)
-            var me = this.To<T>();
-            var them = other.To<T>();
-
-            var differences = Distance(me[0], them[0]) + Distance(me[1], them[1]) + Distance(me[2], them[2]);
-            return Math.Sqrt(differences);
+            return algorithm(this, compareToValue);
         }
 
         public T To<T>() where T:IColorSpace
@@ -24,7 +16,34 @@ namespace ColorMine.ColorSpaces
 
         private const int DataSize = 3;
         private readonly double[] _data = new double[DataSize];
-        public double this[int index]
+        public override string ToString()
+        {
+            return _data.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return _data.ToString().GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (null == obj) return false;
+
+            var colorSpaceObj = obj as ColorSpace;
+            if (null == colorSpaceObj) return false;
+
+            // TODO Should convert to appropriate color space first!
+
+            for (var i = 0; i < _data.Length; i++)
+            {
+                if (!this[i].IsCloseTo(colorSpaceObj[i])) return false;
+            }
+
+            return true;
+        }
+
+        internal double this[int index]
         {
             get
             {
@@ -42,31 +61,6 @@ namespace ColorMine.ColorSpaces
                 }
                 _data[index] = value;
             }
-        }
-
-        public override int GetHashCode()
-        {
-            return _data.GetHashCode();
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (null == obj) return false;
-
-            var otherColorSpace = obj as ColorSpace;
-            if (null == otherColorSpace) return false;
-
-            for (var i = 0; i < _data.Length; i++)
-            {
-                if (!this[i].IsCloseTo(otherColorSpace[i])) return false;
-            }
-
-            return true;
-        }
-
-        private double Distance(double a, double b)
-        {
-            return Math.Pow(a - b, 2);
         }
 
         private bool IsValidIndex(int index)

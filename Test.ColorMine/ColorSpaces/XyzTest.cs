@@ -5,7 +5,7 @@ using ColorMine.Utility;
 
 namespace Test.ColorMine.ColorSpaces
 {
-    public class XyzTest
+    public class XyzTest : ColorSpaceTest
     {
         [TestClass]
         public class X
@@ -124,9 +124,9 @@ namespace Test.ColorMine.ColorSpaces
 
                 var actual = target.ToColor();
 
-                Assert.AreEqual(knownColor.R, actual.R);
-                Assert.AreEqual(knownColor.G, actual.G);
-                Assert.AreEqual(knownColor.B, actual.B);
+                Assert.IsTrue(CloseEnough(knownColor.R, actual.R));
+                Assert.IsTrue(CloseEnough(knownColor.G, actual.G));
+                Assert.IsTrue(CloseEnough(knownColor.B, actual.B));
             }
 
             [TestMethod]
@@ -146,6 +146,7 @@ namespace Test.ColorMine.ColorSpaces
             {
                 ExpectedColorFromKnownValues(Color.DodgerBlue, 28.559,27.443,98.399);
             }
+
         }
     }
 }

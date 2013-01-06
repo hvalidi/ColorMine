@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test.ColorMine.ColorSpaces
 {
-    public class LabTest
+    public class LabTest : ColorSpaceTest
     {
         [TestClass]
         public class L
@@ -124,9 +124,9 @@ namespace Test.ColorMine.ColorSpaces
 
                 var actual = target.ToColor();
 
-                Assert.AreEqual(knownColor.R,actual.R);
-                Assert.AreEqual(knownColor.G, actual.G);
-                Assert.AreEqual(knownColor.B, actual.B);
+                Assert.IsTrue(CloseEnough(knownColor.R, actual.R));
+                Assert.IsTrue(CloseEnough(knownColor.G, actual.G));
+                Assert.IsTrue(CloseEnough(knownColor.B, actual.B));
             }
 
             [TestMethod]

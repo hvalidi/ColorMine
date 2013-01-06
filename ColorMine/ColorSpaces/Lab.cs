@@ -28,32 +28,39 @@ namespace ColorMine.ColorSpaces
             B = 200*(y - z);
         }
 
+        
         public override Color ToColor()
         {
-            const double d65x = 0.9505;
-            const double d65y = 1.0;
-            const double d65z = 1.0890;
-            const double delta = 6.0 / 29.0;
-            var fy = (L + 16.0) / 116.0;
-            var fx = fy + (A / 500.0);
-            var fz = fy - (B / 200.0);
-            var x = (fx > delta) ? d65x * (fx * fx * fx) : (fx - 16.0 / 116.0) * 3.0 * (delta * delta) * d65x;
-            var y = (fy > delta) ? d65y * (fy * fy * fy) : (fy - 16.0 / 116.0) * 3.0 * (delta * delta) * d65y;
-            var z = (fz > delta) ? d65z * (fz * fz * fz) : (fz - 16.0 / 116.0) * 3.0 * (delta * delta) * d65z;
+            // Observer= 2°, Illuminant= D65
+            var ref_X = 95.047;
+            var ref_Y = 100.000;
+            var ref_Z = 108.883;
 
-            var r = x * 3.2410 - y * 1.5374 - z * 0.4986;
-            var g = -x * 0.9692 + y * 1.8760 - z * 0.0416;
-            var b = x * 0.0556 - y * 0.2040 + z * 1.0570;
+            var var_Y = (L + 16)/116;
+            var var_X = A/500 + var_Y;
+            var var_Z = var_Y - B/200;
 
-            r = (r <= 0.0031308) ? 12.92 * r : (1.0 + 0.055) * Math.Pow(r, (1.0 / 2.4)) - 0.055;
-            g = (g <= 0.0031308) ? 12.92 * g : (1.0 + 0.055) * Math.Pow(g, (1.0 / 2.4)) - 0.055;
-            b = (b <= 0.0031308) ? 12.92 * b : (1.0 + 0.055) * Math.Pow(b, (1.0 / 2.4)) - 0.055;
+            if (Math.Pow(var_Y, 3) > 0.008856)
+                var_Y = Math.Pow(var_Y, 3);
+            else
+                var_Y = (var_Y - 16/116)/7.787;
+            if (Math.Pow(var_X, 3) > 0.008856)
+                var_X = Math.Pow(var_X, 3);
+            else
+                var_X = (var_X - 16/116)/7.787;
+            if (Math.Pow(var_Z, 3) > 0.008856)
+                var_Z = Math.Pow(var_Z, 3);
+            else
+                var_Z = (var_Z - 16/116)/7.787;
 
-            r = (r < 0) ? 0 : r;
-            g = (g < 0) ? 0 : g;
-            b = (b < 0) ? 0 : b;
+            var xyz = new Xyz
+                {
+                    X = ref_X*var_X,
+                    Y = ref_Y*var_Y,
+                    Z = ref_Z*var_Z
+                };
 
-            return Color.FromArgb(255, (int)(r * 255), (int)(g * 255), (int)(b * 255));
+            return xyz.ToColor();
         }
 
         private static double pivotXyz(double n)

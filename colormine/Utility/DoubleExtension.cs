@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ColorMine.ColorSpaces
+namespace ColorMine.Utility
 {
-    internal static class DoubleExtension
+    public static class DoubleExtension
     {
         const double DefaultPrecision = .0001;
         internal static bool IsCloseTo(this double a, double b)

@@ -19,6 +19,18 @@ namespace Test.ColorMine.Utility
             {
                 Assert.IsFalse(.9.BasicallyEqualTo(.1,.001));
             }
+
+            [TestMethod]
+            public void ReturnsTrueForCloseNumbersWithDefaultPrecision()
+            {
+                Assert.IsTrue(.3333.BasicallyEqualTo(1.0 / 3));
+            }
+
+            [TestMethod]
+            public void ReturnsFalseForFarNumbersWithDefaultPrecision()
+            {
+                Assert.IsFalse(.9.BasicallyEqualTo(.1));
+            }
         }
     }
 }

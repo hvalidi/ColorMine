@@ -5,7 +5,7 @@ using ColorMine.ColorSpaces;
 
 namespace Test.ColorMine.ColorSpaces
 {
-    public class RgbTest : ColorSpaceTest
+    public class RgbTest
     {
         [TestClass]
         public class R
@@ -13,7 +13,7 @@ namespace Test.ColorMine.ColorSpaces
             [TestMethod]
             public void SavesAppropriateValue()
             {
-                const double expected = 255.0;
+                const double expected = 255;
 
                 var target = new Rgb
                     {
@@ -40,7 +40,7 @@ namespace Test.ColorMine.ColorSpaces
             [TestMethod]
             public void SavesAppropriateValue()
             {
-                const double expected = 231.0;
+                const double expected = 0;
 
                 var target = new Rgb
                     {

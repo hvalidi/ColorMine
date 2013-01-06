@@ -51,7 +51,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ColorSpaces\ColorSpaceTest.cs" />
     <Compile Include="ColorSpaces\RgbTest.cs" />
     <Compile Include="Utility\DoubleExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

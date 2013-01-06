@@ -30,13 +30,13 @@ namespace ColorMine.ColorSpaces
 
         public override Color ToColor()
         {
-            var d65x = 0.9505;
-            var d65y = 1.0;
-            var d65z = 1.0890;
-            var delta = 6.0f / 29.0;
-            var fy = (L + 16f) / 116.0;
-            var fx = fy + (A / 500.0f);
-            var fz = fy - (B / 200.0f);
+            const double d65x = 0.9505;
+            const double d65y = 1.0;
+            const double d65z = 1.0890;
+            const double delta = 6.0 / 29.0;
+            var fy = (L + 16.0) / 116.0;
+            var fx = fy + (A / 500.0);
+            var fz = fy - (B / 200.0);
             var x = (fx > delta) ? d65x * (fx * fx * fx) : (fx - 16.0 / 116.0) * 3.0 * (delta * delta) * d65x;
             var y = (fy > delta) ? d65y * (fy * fy * fy) : (fy - 16.0 / 116.0) * 3.0 * (delta * delta) * d65y;
             var z = (fz > delta) ? d65z * (fz * fz * fz) : (fz - 16.0 / 116.0) * 3.0 * (delta * delta) * d65z;
@@ -53,12 +53,12 @@ namespace ColorMine.ColorSpaces
             g = (g < 0) ? 0 : g;
             b = (b < 0) ? 0 : b;
 
-            return Color.FromArgb(255, (int)r, (int)g, (int)b);
+            return Color.FromArgb(255, (int)(r * 255), (int)(g * 255), (int)(b * 255));
         }
 
         private static double pivotXyz(double n)
         {
-            double i = CubicRoot(n);
+            var i = CubicRoot(n);
             return n > 0.008856 ? i : 7.787 * n + 16 / 116;
         }
 

@@ -5,12 +5,12 @@ namespace ColorMine.Utility
     public static class DoubleExtension
     {
         const double DefaultPrecision = .0001;
-        internal static bool IsCloseTo(this double a, double b)
+        internal static bool BasicallyEqualTo(this double a, double b)
         {
-            return a.IsCloseTo(b, DefaultPrecision);
+            return a.BasicallyEqualTo(b, DefaultPrecision);
         }
 
-        internal static bool IsCloseTo(this double a, double b, double precision)
+        internal static bool BasicallyEqualTo(this double a, double b, double precision)
         {
             return Math.Abs(a - b) <= Math.Abs(a * precision);
         }

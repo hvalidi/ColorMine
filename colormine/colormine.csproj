@@ -43,8 +43,8 @@
     <Compile Include="ColorSpaces\ColorSpace.cs" />
     <Compile Include="ColorSpaces\Comparisons\DeltaEComparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IColorSpaceComparison.cs" />
-    <Compile Include="ColorSpaces\DoubleExtension.cs" />
-    <Compile Include="ColorSpaces\IColorSpace.cs" />
+    <Compile Include="ColorSpaces\Hsl.cs" />
+    <Compile Include="Utility\DoubleExtension.cs" />
     <Compile Include="ColorSpaces\Lab.cs" />
     <Compile Include="ColorSpaces\Rgb.cs" />
     <Compile Include="ColorSpaces\Xyz.cs" />

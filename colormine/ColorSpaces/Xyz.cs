@@ -11,9 +11,9 @@ namespace ColorMine.ColorSpaces
 
         public override void Initialize(Color color)
         {
-            double r = pivotRgb(color.R/255.0);
-            double g = pivotRgb(color.G/255.0);
-            double b = pivotRgb(color.B/255.0);
+            var r = pivotRgb(color.R/255.0);
+            var g = pivotRgb(color.G / 255.0);
+            var b = pivotRgb(color.B / 255.0);
 
             // Observer. = 2°, Illuminant = D65
             X = r*0.4124 + g*0.3576 + b*0.1805;

@@ -67,7 +67,7 @@ namespace ColorMine.ColorSpaces
 
         private bool IsValidIndex(int index)
         {
-            return 0 < index && index < _data.Length;
+            return 0 <= index && index < _data.Length;
         }
     }
 }

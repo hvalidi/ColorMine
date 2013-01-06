@@ -50,7 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DoubleExtensionTest.cs" />
+    <Compile Include="ColorSpaces\ColorSpaceTest.cs" />
+    <Compile Include="ColorSpaces\RgbTest.cs" />
+    <Compile Include="Utility\DoubleExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +61,7 @@
       <Name>ColorMine</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMine", "ColorMine\ColorMine.csproj", "{AE7DC769-4A71-49BA-BDD7-281F3E70B02A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.ColorMine", "Test.ColorMine\Test.ColorMine.csproj", "{318DFB24-B947-4B07-AFDB-561A262EB424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{AE7DC769-4A71-49BA-BDD7-281F3E70B02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7DC769-4A71-49BA-BDD7-281F3E70B02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7DC769-4A71-49BA-BDD7-281F3E70B02A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{318DFB24-B947-4B07-AFDB-561A262EB424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{318DFB24-B947-4B07-AFDB-561A262EB424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{318DFB24-B947-4B07-AFDB-561A262EB424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{318DFB24-B947-4B07-AFDB-561A262EB424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

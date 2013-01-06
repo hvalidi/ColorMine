@@ -31,9 +31,9 @@ namespace Test.ColorMine.ColorSpaces.Comparisons
             }
 
             [TestMethod]
-            public void ReturnsKnownValueForKnownColors()
+            public void ReturnsKnownValueForDissimilarColors()
             {
-                var a = new Lab()
+                var a = new Lab
                     {
                         L = 50,
                         A = 67,
@@ -48,6 +48,26 @@ namespace Test.ColorMine.ColorSpaces.Comparisons
                     };
 
                 ReturnsExpectedValueForKnownInput(84.0238, a, b);
+            }
+
+            [TestMethod]
+            public void ReturnsKnownValueForSimilarColors()
+            {
+                var a = new Lab
+                {
+                    L = 88.17,
+                    A = 67,
+                    B = 88
+                };
+
+                var b = new Lab
+                {
+                    L = 87.16,
+                    A = 65,
+                    B = 66
+                };
+
+                ReturnsExpectedValueForKnownInput(22.1138, a, b);
             }
         }
     }

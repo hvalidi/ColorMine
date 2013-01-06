@@ -7,10 +7,19 @@ namespace ColorMine.ColorSpaces
         /// <summary>Determine how close two ColorTuples are to each other using the distance formula in three dimensional space.</summary>
         /// <param name="other">Other IColorSpace to compare to</param>
         /// <returns>the distance in 3d space as double</returns>
-        public double Compare(IColorSpace other)
+        public double Compare<T>(IColorSpace other) where T:IColorSpace
         {
-            var differences = Distance(this[0], other[0]) + Distance(this[1], other[1]) + Distance(this[2], other[2]);
+            // first get them to the same space (T)
+            var me = this.To<T>();
+            var them = other.To<T>();
+
+            var differences = Distance(me[0], them[0]) + Distance(me[1], them[1]) + Distance(me[2], them[2]);
             return Math.Sqrt(differences);
+        }
+
+        public T To<T>() where T:IColorSpace
+        {
+            throw new NotImplementedException("Need to do color conversions here");
         }
 
         private const int DataSize = 3;

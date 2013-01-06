@@ -3,7 +3,6 @@ using ColorMine.Utility;
 
 namespace Test.ColorMine.Utility
 {
-    [TestClass]
     public class DoubleExtensionTest
     {
         [TestClass]

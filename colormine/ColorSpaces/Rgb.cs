@@ -18,13 +18,12 @@ namespace ColorMine.ColorSpaces
 
         public override Color ToColor()
         {
-            // TODO Not right...
             return Color.FromArgb(255, (int)R, (int)G, (int)B);
         }
 
         private const double Min = 0;
         private const double Max = 255;
-        private void ValidateRange(double n)
+        private static void ValidateRange(double n)
         {
             if (n < Min || n > Max)
             {

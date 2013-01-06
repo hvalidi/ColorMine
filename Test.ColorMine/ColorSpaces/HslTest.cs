@@ -121,8 +121,6 @@ namespace Test.ColorMine.ColorSpaces
                     L = knownColor.GetBrightness()
                 };
 
-                var actual = target.ToColor();
-
                 Assert.AreEqual(knownColor.GetHue(),target.H);
                 Assert.AreEqual(knownColor.GetSaturation(), target.S);
                 Assert.AreEqual(knownColor.GetBrightness(), target.L);

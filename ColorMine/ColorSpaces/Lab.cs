@@ -30,7 +30,30 @@ namespace ColorMine.ColorSpaces
 
         public override Color ToColor()
         {
-            throw new NotImplementedException();
+            var d65x = 0.9505;
+            var d65y = 1.0;
+            var d65z = 1.0890;
+            var delta = 6.0f / 29.0;
+            var fy = (L + 16f) / 116.0;
+            var fx = fy + (A / 500.0f);
+            var fz = fy - (B / 200.0f);
+            var x = (fx > delta) ? d65x * (fx * fx * fx) : (fx - 16.0 / 116.0) * 3.0 * (delta * delta) * d65x;
+            var y = (fy > delta) ? d65y * (fy * fy * fy) : (fy - 16.0 / 116.0) * 3.0 * (delta * delta) * d65y;
+            var z = (fz > delta) ? d65z * (fz * fz * fz) : (fz - 16.0 / 116.0) * 3.0 * (delta * delta) * d65z;
+
+            var r = x * 3.2410 - y * 1.5374 - z * 0.4986;
+            var g = -x * 0.9692 + y * 1.8760 - z * 0.0416;
+            var b = x * 0.0556 - y * 0.2040 + z * 1.0570;
+
+            r = (r <= 0.0031308) ? 12.92 * r : (1.0 + 0.055) * Math.Pow(r, (1.0 / 2.4)) - 0.055;
+            g = (g <= 0.0031308) ? 12.92 * g : (1.0 + 0.055) * Math.Pow(g, (1.0 / 2.4)) - 0.055;
+            b = (b <= 0.0031308) ? 12.92 * b : (1.0 + 0.055) * Math.Pow(b, (1.0 / 2.4)) - 0.055;
+
+            r = (r < 0) ? 0 : r;
+            g = (g < 0) ? 0 : g;
+            b = (b < 0) ? 0 : b;
+
+            return Color.FromArgb(255, (int)r, (int)g, (int)b);
         }
 
         private static double pivotXyz(double n)

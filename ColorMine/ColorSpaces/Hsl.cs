@@ -1,7 +1,5 @@
-﻿using System;
+﻿using ColorMine.Utility;
 using System.Drawing;
-using System.Linq;
-using ColorMine.Utility;
 
 namespace ColorMine.ColorSpaces
 {
@@ -13,69 +11,59 @@ namespace ColorMine.ColorSpaces
 
         public override void Initialize(Color color)
         {
-            var r = (color.R / 255.0);
-            var g = (color.G / 255.0);
-            var b = (color.B / 255.0);
-
-            var min = Min(r, g, b);
-            var max = Max(r, g, b);
-            var deltaMax = max - min;
-
-            var l = (max + min) / 2;
-            var h = 0.0;
-            var s = 0.0;
-
-            if (deltaMax != 0.0)
-            {
-                s = (l < 0.5) ? deltaMax / (max + min) : deltaMax / (2.0 - max - min);
-
-                double deltaR = (((max - r) / 6.0) + (deltaMax / 2.0)) / deltaMax;
-                double deltaG = (((max - g) / 6.0) + (deltaMax / 2.0)) / deltaMax;
-                double deltaB = (((max - b) / 6.0) + (deltaMax / 2.0)) / deltaMax;
-
-                if (r.BasicallyEqualTo(max))
-                {
-                    h = deltaB - deltaG;
-                }
-                else if (g.BasicallyEqualTo(max))
-                {
-                    h = (1.0 / 3.0) + deltaR - deltaB;
-                }
-                else if (b.BasicallyEqualTo(max))
-                {
-                    h = (2.0 / 3.0) + deltaG - deltaR;
-                }
-
-                if (h < 0.0)
-                {
-                    h += 1.0;
-                }
-                else if (h > 1.0)
-                {
-                    h -= 1.0;
-                }
-
-            }
-
-            H = h;
-            S = s;
-            L = l;
+            H = color.GetHue();
+            S = color.GetSaturation();
+            L = color.GetBrightness();
         }
 
         public override Color ToColor()
         {
-            throw new NotImplementedException();
+            var r = 0.0;
+            var g = 0.0;
+            var b = 0.0;
+
+            if (!L.BasicallyEqualTo(0))
+            {
+                if (S.BasicallyEqualTo(0)) r = g = b = L;
+                else
+                {
+                    var temp2 = (L < 0.5) ? L*(1.0 + S) : L + S - (L*S);
+                    var temp1 = 2.0 * L - temp2;
+
+                    r = GetColorComponent(temp1, temp2, H + 1.0 / 3.0);
+                    g = GetColorComponent(temp1, temp2, H);
+                    b = GetColorComponent(temp1, temp2, H - 1.0 / 3.0);
+                }
+            }
+            return Color.FromArgb((int)(255 * r), (int)(255 * g), (int)(255 * b));
         }
 
-        private static double Max(params double[] numbers)
+        private static double GetColorComponent(double temp1, double temp2, double temp3)
         {
-            return numbers.ToList().Max();
-	    }
+            temp3 = MoveIntoRange(temp3);
+            if (temp3 < 1.0 / 6.0)
+            {
+                return temp1 + (temp2 - temp1) * 6.0 * temp3;
+            }
 
-        private static double Min(params double[] numbers)
+            if (temp3 < 0.5)
+            {
+                return temp2;
+            }
+
+            if (temp3 < 2.0 / 3.0)
+            {
+                return temp1 + ((temp2 - temp1) * ((2.0 / 3.0) - temp3) * 6.0);
+            }
+
+            return temp1;
+        }
+
+        private static double MoveIntoRange(double temp3)
         {
-            return numbers.ToList().Min();
-	    }
+            if (temp3 < 0.0) return temp3 + 1;
+            if (temp3 > 1.0) return temp3 - 1;
+            return temp3;
+        }
     }
-
 }

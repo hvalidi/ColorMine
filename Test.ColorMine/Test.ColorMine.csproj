@@ -55,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ColorSpaces\HslTest.cs" />
     <Compile Include="ColorSpaces\RgbTest.cs" />
     <Compile Include="Utility\DoubleExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

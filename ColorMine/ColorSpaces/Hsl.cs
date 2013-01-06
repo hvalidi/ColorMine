@@ -18,21 +18,25 @@ namespace ColorMine.ColorSpaces
 
         public override Color ToColor()
         {
+            var rangedH = H/360;
             var r = 0.0;
             var g = 0.0;
             var b = 0.0;
 
             if (!L.BasicallyEqualTo(0))
             {
-                if (S.BasicallyEqualTo(0)) r = g = b = L;
+                if (S.BasicallyEqualTo(0))
+                {
+                    r = g = b = L;
+                }
                 else
                 {
                     var temp2 = (L < 0.5) ? L*(1.0 + S) : L + S - (L*S);
                     var temp1 = 2.0 * L - temp2;
 
-                    r = GetColorComponent(temp1, temp2, H + 1.0 / 3.0);
-                    g = GetColorComponent(temp1, temp2, H);
-                    b = GetColorComponent(temp1, temp2, H - 1.0 / 3.0);
+                    r = GetColorComponent(temp1, temp2, rangedH + 1.0 / 3.0);
+                    g = GetColorComponent(temp1, temp2, rangedH);
+                    b = GetColorComponent(temp1, temp2, rangedH - 1.0 / 3.0);
                 }
             }
             return Color.FromArgb((int)(255 * r), (int)(255 * g), (int)(255 * b));

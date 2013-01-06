@@ -17,9 +17,9 @@ namespace ColorMine.ColorSpaces
             var g = (color.G / 255.0);
             var b = (color.B / 255.0);
 
-            var min = Min(r, g, b); // Min. value of RGB
-            var max = Max(r, g, b); // Max. value of RGB
-            var deltaMax = max - min; // Delta RGB value
+            var min = Min(r, g, b);
+            var max = Max(r, g, b);
+            var deltaMax = max - min;
 
             var l = (max + min) / 2;
             var h = 0.0;

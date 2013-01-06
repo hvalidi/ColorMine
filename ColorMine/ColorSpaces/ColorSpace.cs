@@ -29,6 +29,7 @@ namespace ColorMine.ColorSpaces
     public abstract class ColorSpace : IColorSpace
     {
         public abstract void Initialize(Color color);
+
         public abstract Color ToColor();
         
         public double Compare(IColorSpace compareToValue, ComparisonAlgorithm algorithm)
@@ -45,29 +46,6 @@ namespace ColorMine.ColorSpaces
         
         private const int DataSize = 3;
         private readonly double[] _data = new double[DataSize];
-        internal double this[int index]
-        {
-            get
-            {
-                if (!IsValidIndex(index))
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                return _data[index];
-            }
-            set
-            {
-                if (!IsValidIndex(index))
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                _data[index] = value;
-            }
-        }
-
-        private bool IsValidIndex(int index)
-        {
-            return 0 <= index && index < _data.Length;
-        }
+        protected double this[int index] { get { return _data[index]; } set { _data[index] = value; } }
     }
 }

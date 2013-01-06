@@ -1,6 +1,6 @@
 ﻿namespace ColorMine.ColorSpaces.Comparisons
 {
-    interface IColorSpaceComparison
+    public interface IColorSpaceComparison
     {
         /// <summary>
         /// Compares two colors

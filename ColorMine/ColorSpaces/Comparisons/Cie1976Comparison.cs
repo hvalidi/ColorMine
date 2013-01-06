@@ -2,7 +2,7 @@
 
 namespace ColorMine.ColorSpaces.Comparisons
 {
-    class DeltaEComparison : IColorSpaceComparison
+    internal class Cie1976Comparison : IDeltaEComparison
     {
         public double Compare(IColorSpace colorA, IColorSpace colorB)
         {
@@ -13,7 +13,7 @@ namespace ColorMine.ColorSpaces.Comparisons
             return Math.Sqrt(differences);
         }
 
-        private double Distance(double a, double b)
+        private static double Distance(double a, double b)
         {
             return Math.Pow(a - b, 2);
         }

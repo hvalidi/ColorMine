@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using ColorMine.ColorSpaces.Comparisons;
 
 namespace ColorMine.ColorSpaces
 {
@@ -21,9 +22,9 @@ namespace ColorMine.ColorSpaces
         /// Determine how close two IColorSpaces are to each other using a passed in algorithm
         /// </summary>
         /// <param name="compareToValue">Other IColorSpace to compare to</param>
-        /// <param name="algorithm">Algorithm to use for comparison</param>
+        /// <param name="comparer">Algorithm to use for comparison</param>
         /// <returns>the distance in 3d space as double</returns>
-        double Compare(IColorSpace compareToValue, ComparisonAlgorithm algorithm);
+        double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer);
     }
 
     public abstract class ColorSpace : IColorSpace
@@ -31,10 +32,10 @@ namespace ColorMine.ColorSpaces
         public abstract void Initialize(Color color);
 
         public abstract Color ToColor();
-        
-        public double Compare(IColorSpace compareToValue, ComparisonAlgorithm algorithm)
+
+        public double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer)
         {
-            return algorithm(this, compareToValue);
+            return comparer.Compare(this, compareToValue);
         }
 
         public T To<T>() where T : IColorSpace, new()

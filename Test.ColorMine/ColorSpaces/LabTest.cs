@@ -122,9 +122,11 @@ namespace Test.ColorMine.ColorSpaces
                         B = expectedB
                     };
 
-                Assert.AreEqual(expectedL, target.L);
-                Assert.AreEqual(expectedA, target.A);
-                Assert.AreEqual(expectedB, target.B);
+                var actual = target.ToColor();
+
+                Assert.AreEqual(knownColor.R,actual.R);
+                Assert.AreEqual(knownColor.G, actual.G);
+                Assert.AreEqual(knownColor.B, actual.B);
             }
 
             [TestMethod]

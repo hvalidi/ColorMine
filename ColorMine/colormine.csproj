@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorSpaces\ColorSpace.cs" />
-    <Compile Include="ColorSpaces\Comparisons\DeltaEComparison.cs" />
+    <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
+    <Compile Include="ColorSpaces\Comparisons\IDeltaEComparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IColorSpaceComparison.cs" />
     <Compile Include="ColorSpaces\Hsl.cs" />
     <Compile Include="Utility\DoubleExtension.cs" />

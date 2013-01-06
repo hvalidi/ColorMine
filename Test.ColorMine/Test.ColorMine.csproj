@@ -55,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
     <Compile Include="ColorSpaces\HslTest.cs" />
     <Compile Include="ColorSpaces\LabTest.cs" />
     <Compile Include="ColorSpaces\RgbTest.cs" />

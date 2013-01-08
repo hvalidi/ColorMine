@@ -19,9 +19,9 @@ namespace ColorMine.ColorSpaces
             var xyz = new Xyz();
             xyz.Initialize(color);
 
-		    var x = pivotXyz(xyz.X / RefX);
-		    var y = pivotXyz(xyz.Y / RefY);
-		    var z = pivotXyz(xyz.Z / RefZ);
+		    var x = PivotXyz(xyz.X / RefX);
+		    var y = PivotXyz(xyz.Y / RefY);
+		    var z = PivotXyz(xyz.Z / RefZ);
 
             L = 116*y - 16;
             A = 500*(x - y);
@@ -31,39 +31,25 @@ namespace ColorMine.ColorSpaces
         
         public override Color ToColor()
         {
-            // Observer= 2°, Illuminant= D65
-            var ref_X = 95.047;
-            var ref_Y = 100.000;
-            var ref_Z = 108.883;
+            var y = (L + 16)/116;
+            var x = A/500 + y;
+            var z = y - B/200;
 
-            var var_Y = (L + 16)/116;
-            var var_X = A/500 + var_Y;
-            var var_Z = var_Y - B/200;
-
-            if (Math.Pow(var_Y, 3) > 0.008856)
-                var_Y = Math.Pow(var_Y, 3);
-            else
-                var_Y = (var_Y - 16/116)/7.787;
-            if (Math.Pow(var_X, 3) > 0.008856)
-                var_X = Math.Pow(var_X, 3);
-            else
-                var_X = (var_X - 16/116)/7.787;
-            if (Math.Pow(var_Z, 3) > 0.008856)
-                var_Z = Math.Pow(var_Z, 3);
-            else
-                var_Z = (var_Z - 16/116)/7.787;
+            y = Math.Pow(y, 3) > 0.008856 ? Math.Pow(y, 3) : (y - 16/116)/7.787;
+            x = Math.Pow(x, 3) > 0.008856 ? Math.Pow(x, 3) : (x - 16/116)/7.787;
+            z = Math.Pow(z, 3) > 0.008856 ? Math.Pow(z, 3) : (z - 16/116)/7.787;
 
             var xyz = new Xyz
                 {
-                    X = ref_X*var_X,
-                    Y = ref_Y*var_Y,
-                    Z = ref_Z*var_Z
+                    X = RefX*x,
+                    Y = RefY*y,
+                    Z = RefZ*z
                 };
 
             return xyz.ToColor();
         }
 
-        private static double pivotXyz(double n)
+        private static double PivotXyz(double n)
         {
             var i = CubicRoot(n);
             return n > 0.008856 ? i : 7.787 * n + 16 / 116;

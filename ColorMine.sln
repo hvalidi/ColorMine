@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMine", "ColorMine\ColorMine.csproj", "{AE7DC769-4A71-49BA-BDD7-281F3E70B02A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.ColorMine", "Test.ColorMine\Test.ColorMine.csproj", "{318DFB24-B947-4B07-AFDB-561A262EB424}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMine.Test", "ColorMine.Test\ColorMine.Test.csproj", "{318DFB24-B947-4B07-AFDB-561A262EB424}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

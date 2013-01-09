@@ -6,8 +6,8 @@
     <ProjectGuid>{318DFB24-B947-4B07-AFDB-561A262EB424}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Test.ColorMine</RootNamespace>
-    <AssemblyName>Test.ColorMine</AssemblyName>
+    <RootNamespace>ColorMine.Test</RootNamespace>
+    <AssemblyName>ColorMine.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

@@ -3,26 +3,14 @@ using System.Drawing;
 
 namespace ColorMine.ColorSpaces
 {
-    // Todo should be generated
-    public interface ILab : IColorSpace
+    internal static class LabConverter
     {
-        double L { get; }
-        double A { get; }
-        double B { get; }
-    }
-
-    public class Lab : ColorSpace, ILab
-    {
-        public double L { get { return this[0]; } set { this[0] = value; } }
-        public double A { get { return this[1]; } set { this[1] = value; } }
-        public double B { get { return this[2]; } set { this[2] = value; } }
-
         // Observer= 2°, Illuminant= D65
         private const double RefX = 95.047;
         private const double RefY = 100.000;
         private const double RefZ = 108.883;
 
-        public override void Initialize(Color color)
+        internal static void ToColorSpace(Color color, ILab item)
         {
             var xyz = new Xyz();
             xyz.Initialize(color);
@@ -31,17 +19,16 @@ namespace ColorMine.ColorSpaces
 		    var y = PivotXyz(xyz.Y / RefY);
 		    var z = PivotXyz(xyz.Z / RefZ);
 
-            L = 116*y - 16;
-            A = 500*(x - y);
-            B = 200*(y - z);
+            item.L = 116*y - 16;
+            item.A = 500 * (x - y);
+            item.B = 200 * (y - z);
         }
 
-        
-        public override Color ToColor()
+        internal static Color ToColor(ILab item)
         {
-            var y = (L + 16)/116;
-            var x = A/500 + y;
-            var z = y - B/200;
+            var y = (item.L + 16) / 116;
+            var x = item.A / 500 + y;
+            var z = y - item.B / 200;
 
             y = Math.Pow(y, 3) > 0.008856 ? Math.Pow(y, 3) : (y - 16/116)/7.787;
             x = Math.Pow(x, 3) > 0.008856 ? Math.Pow(x, 3) : (x - 16/116)/7.787;

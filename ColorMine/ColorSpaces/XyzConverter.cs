@@ -3,38 +3,26 @@ using System.Drawing;
 
 namespace ColorMine.ColorSpaces
 {
-    // Todo should be generated
-    public interface IXyz : IColorSpace
+    internal static class XyzConverter
     {
-        double X { get; }
-        double Y { get; }
-        double Z { get; }
-    }
-
-    public class Xyz : ColorSpace, IXyz
-    {
-        public double X { get { return this[0]; } set { this[0] = value; } }
-        public double Y { get { return this[1]; } set { this[1] = value; } }
-        public double Z { get { return this[2]; } set { this[2] = value; } }
-
-        public override void Initialize(Color color)
+        internal static void ToColorSpace(Color color, IXyz item)
         {
             var r = PivotRgb(color.R/255.0);
             var g = PivotRgb(color.G/255.0);
             var b = PivotRgb(color.B/255.0);
 
             // Observer. = 2°, Illuminant = D65
-            X = r*0.4124 + g*0.3576 + b*0.1805;
-            Y = r*0.2126 + g*0.7152 + b*0.0722;
-            Z = r*0.0193 + g*0.1192 + b*0.9505;
+            item.X = r*0.4124 + g*0.3576 + b*0.1805;
+            item.Y = r * 0.2126 + g * 0.7152 + b * 0.0722;
+            item.Z = r * 0.0193 + g * 0.1192 + b * 0.9505;
         }
 
-        public override Color ToColor()
+        internal static Color ToColor(IXyz item)
         {
             // (Observer = 2°, Illuminant = D65)
-            var x = X/100;
-            var y = Y/100;
-            var z = Z/100;
+            var x = item.X/100;
+            var y = item.Y / 100;
+            var z = item.Z / 100;
 
             var r = x*3.2406 + y*-1.5372 + z*-0.4986;
             var g = x*-0.9689 + y*1.8758 + z*0.0415;

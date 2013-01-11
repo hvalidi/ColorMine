@@ -41,17 +41,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorSpaces\ColorSpace.cs" />
+    <Compile Include="ColorSpaces\ColorSpaces.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorSpaces.tt</DependentUpon>
+    </Compile>
     <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IDeltaEComparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IColorSpaceComparison.cs" />
-    <Compile Include="ColorSpaces\Hsl.cs" />
+    <Compile Include="ColorSpaces\HslConverter.cs" />
     <Compile Include="Utility\DoubleExtension.cs" />
-    <Compile Include="ColorSpaces\Lab.cs" />
-    <Compile Include="ColorSpaces\Rgb.cs" />
-    <Compile Include="ColorSpaces\Xyz.cs" />
+    <Compile Include="ColorSpaces\LabConverter.cs" />
+    <Compile Include="ColorSpaces\RgbConverter.cs" />
+    <Compile Include="ColorSpaces\XyzConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="ColorSpaces\ColorSpaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorSpaces.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

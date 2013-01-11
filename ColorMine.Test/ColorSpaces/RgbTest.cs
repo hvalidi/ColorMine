@@ -14,7 +14,7 @@ namespace ColorMine.Test.ColorSpaces
             public void SavesAppropriateValue()
             {
                 const double expected = 255;
-
+                // TODO Should be mocking!
                 var target = new Rgb
                     {
                         R = expected
@@ -23,15 +23,6 @@ namespace ColorMine.Test.ColorSpaces
                 Assert.AreEqual(expected, target.R);
             }
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentOutOfRangeException))]
-            public void ThrowsExceptionForInappropriateValue()
-            {
-                var target = new Rgb
-                {
-                    R = -1
-                };
-            }
         }
 
         [TestClass]
@@ -49,16 +40,6 @@ namespace ColorMine.Test.ColorSpaces
 
                 Assert.AreEqual(expected, target.G);
             }
-
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentOutOfRangeException))]
-            public void ThrowsExceptionForInappropriateValue()
-            {
-                var target = new Rgb
-                {
-                    G = -1
-                };
-            }
         }
 
         [TestClass]
@@ -75,16 +56,6 @@ namespace ColorMine.Test.ColorSpaces
                     };
 
                 Assert.AreEqual(expected, target.B);
-            }
-
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentOutOfRangeException))]
-            public void ThrowsExceptionForInappropriateValue()
-            {
-                var target = new Rgb
-                {
-                    B = -1
-                };
             }
         }
 

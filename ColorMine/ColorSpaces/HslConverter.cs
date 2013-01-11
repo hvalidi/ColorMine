@@ -1,46 +1,34 @@
-﻿using ColorMine.Utility;
-using System.Drawing;
+﻿using System.Drawing;
+using ColorMine.Utility;
 
 namespace ColorMine.ColorSpaces
 {
-    // Todo should be generated
-    public interface IHsl : IColorSpace
+    internal static class HslConverter
     {
-        double H { get; }
-        double S { get; }
-        double L { get; }
-    }
-
-    public class Hsl : ColorSpace, IHsl
-    {
-        public double H { get { return this[0]; } set { this[0] = value; } }
-        public double S { get { return this[1]; } set { this[1] = value; } }
-        public double L { get { return this[2]; } set { this[2] = value; } }
-
-        public override void Initialize(Color color)
+        internal static void ToColorSpace(Color color,IHsl item)
         {
-            H = color.GetHue();
-            S = color.GetSaturation();
-            L = color.GetBrightness();
+            item.H = color.GetHue();
+            item.S = color.GetSaturation();
+            item.L = color.GetBrightness();
         }
 
-        public override Color ToColor()
+        internal static Color ToColor(IHsl item)
         {
-            var rangedH = H/360;
+            var rangedH = item.H / 360.0;
             var r = 0.0;
             var g = 0.0;
             var b = 0.0;
 
-            if (!L.BasicallyEqualTo(0))
+            if (!item.L.BasicallyEqualTo(0))
             {
-                if (S.BasicallyEqualTo(0))
+                if (item.S.BasicallyEqualTo(0))
                 {
-                    r = g = b = L;
+                    r = g = b = item.L;
                 }
                 else
                 {
-                    var temp2 = (L < 0.5) ? L*(1.0 + S) : L + S - (L*S);
-                    var temp1 = 2.0 * L - temp2;
+                    var temp2 = (item.L < 0.5) ? item.L * (1.0 + item.S) : item.L + item.S - (item.L * item.S);
+                    var temp1 = 2.0 * item.L - temp2;
 
                     r = GetColorComponent(temp1, temp2, rangedH + 1.0 / 3.0);
                     g = GetColorComponent(temp1, temp2, rangedH);

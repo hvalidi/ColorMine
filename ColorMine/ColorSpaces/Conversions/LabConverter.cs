@@ -12,10 +12,12 @@ namespace ColorMine.ColorSpaces.Conversions
 
         internal static void ToColorSpace(Color color, ILab item)
         {
-            var xyz = new Xyz(color);
-            double x = PivotXyz(xyz.X/RefX);
-            double y = PivotXyz(xyz.Y/RefY);
-            double z = PivotXyz(xyz.Z/RefZ);
+            var xyz = new Xyz();
+            xyz.Initialize(color);
+
+            var x = PivotXyz(xyz.X/RefX);
+            var y = PivotXyz(xyz.Y/RefY);
+            var z = PivotXyz(xyz.Z/RefZ);
 
             item.L = 116*y - 16;
             item.A = 500*(x - y);
@@ -24,9 +26,9 @@ namespace ColorMine.ColorSpaces.Conversions
 
         internal static Color ToColor(ILab item)
         {
-            double y = (item.L + 16)/116;
-            double x = item.A/500 + y;
-            double z = y - item.B/200;
+            var y = (item.L + 16) / 116.0;
+            var x = item.A / 500.0 + y;
+            var z = y - item.B / 200.0;
 
             y = Math.Pow(y, 3) > 0.008856 ? Math.Pow(y, 3) : (y - 16/116)/7.787;
             x = Math.Pow(x, 3) > 0.008856 ? Math.Pow(x, 3) : (x - 16/116)/7.787;
@@ -44,7 +46,7 @@ namespace ColorMine.ColorSpaces.Conversions
 
         private static double PivotXyz(double n)
         {
-            double i = CubicRoot(n);
+            var i = CubicRoot(n);
             return n > 0.008856 ? i : 7.787*n + 16/116;
         }
 

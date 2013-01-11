@@ -14,10 +14,10 @@ namespace ColorMine.ColorSpaces.Conversions
 
         internal static Color ToColor(IHsl item)
         {
-            double rangedH = item.H/360.0;
-            double r = 0.0;
-            double g = 0.0;
-            double b = 0.0;
+            var rangedH = item.H/360.0;
+            var r = 0.0;
+            var g = 0.0;
+            var b = 0.0;
 
             if (!item.L.BasicallyEqualTo(0))
             {

@@ -30,11 +30,6 @@ namespace ColorMine.ColorSpaces
 
 		public <#=spaceName#>() {}
 
-        public <#=spaceName#>(Color color)
-        {
-            <#=spaceName#>Converter.ToColorSpace(color,this);
-        }
-
         public override void Initialize(Color color)
         {
             <#=spaceName#>Converter.ToColorSpace(color,this);

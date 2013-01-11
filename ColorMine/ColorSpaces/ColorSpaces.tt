@@ -3,22 +3,26 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<# var colorSpaces = "Hsl,Lab,Rgb,Xyz".Split(',').ToList(); #> 
+<#
+	const string availableColorSpaces = "Hsl,Lab,Rgb,Xyz";
+	var colorSpaces = availableColorSpaces.Split(',').ToList();
+#>
 <#@ output extension=".cs" #>using System.Drawing;
+using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
 {
-  <# foreach (var spaceName in colorSpaces) {
-	 var ordinal = spaceName.ToUpper().ToCharArray();
-   #>
-    public interface I<#=spaceName#> : IColorSpace
+
+    <# foreach (var spaceName in colorSpaces) {
+		var ordinal = spaceName.ToUpper().ToCharArray();
+     #>public interface I<#=spaceName#> : IColorSpace
     {
         double <#=ordinal[0]#> { get; set; }
         double <#=ordinal[1]#> { get; set; }
         double <#=ordinal[2]#> { get; set; }
     }
 
-    public class <#=spaceName#> : ColorSpace, I<#=spaceName#>
+    public class <#=spaceName#> : ColorSpace, I<#=spaceName#>, IColorSpace
     {
         public double <#=ordinal[0]#> { get { return this[0]; } set { this[0] = value; } }
         public double <#=ordinal[1]#> { get { return this[1]; } set { this[1] = value; } }
@@ -34,7 +38,6 @@ namespace ColorMine.ColorSpaces
             return <#=spaceName#>Converter.ToColor(this);
         }
     }
-	<#
-	}
-	#>
+	<# } #>
+
 }

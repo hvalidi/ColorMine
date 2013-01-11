@@ -49,11 +49,11 @@
     <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IDeltaEComparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IColorSpaceComparison.cs" />
-    <Compile Include="ColorSpaces\HslConverter.cs" />
+    <Compile Include="ColorSpaces\Conversions\HslConverter.cs" />
     <Compile Include="Utility\DoubleExtension.cs" />
-    <Compile Include="ColorSpaces\LabConverter.cs" />
-    <Compile Include="ColorSpaces\RgbConverter.cs" />
-    <Compile Include="ColorSpaces\XyzConverter.cs" />
+    <Compile Include="ColorSpaces\Conversions\LabConverter.cs" />
+    <Compile Include="ColorSpaces\Conversions\RgbConverter.cs" />
+    <Compile Include="ColorSpaces\Conversions\XyzConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

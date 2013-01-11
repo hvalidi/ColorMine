@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using ColorMine.Utility;
 
-namespace ColorMine.ColorSpaces
+namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class HslConverter
     {

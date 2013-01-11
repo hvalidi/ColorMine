@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using ColorMine.ColorSpaces.Comparisons;
 
 namespace ColorMine.ColorSpaces
@@ -36,6 +35,9 @@ namespace ColorMine.ColorSpaces
 
     public abstract class ColorSpace : IColorSpace
     {
+        private readonly double[] _data = new double[3];
+        public double this[int index] { get { return _data[index]; } set { _data[index] = value; } }
+
         public abstract void Initialize(Color color);
 
         public abstract Color ToColor();
@@ -61,9 +63,6 @@ namespace ColorMine.ColorSpaces
             newColorSpace.Initialize(ToColor());
             return newColorSpace;
         }
-        
-        private const int DataSize = 3;
-        private readonly double[] _data = new double[DataSize];
-        public double this[int index] { get { return _data[index]; } set { _data[index] = value; } }
+
     }
 }

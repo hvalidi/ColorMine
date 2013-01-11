@@ -1,16 +1,17 @@
-﻿ 
-using System.Drawing;
+﻿using System.Drawing;
+using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
 {
-      public interface IHsl : IColorSpace
+
+    public interface IHsl : IColorSpace
     {
         double H { get; set; }
         double S { get; set; }
         double L { get; set; }
     }
 
-    public class Hsl : ColorSpace, IHsl
+    public class Hsl : ColorSpace, IHsl, IColorSpace
     {
         public double H { get { return this[0]; } set { this[0] = value; } }
         public double S { get { return this[1]; } set { this[1] = value; } }
@@ -26,14 +27,14 @@ namespace ColorMine.ColorSpaces
             return HslConverter.ToColor(this);
         }
     }
-	    public interface ILab : IColorSpace
+	public interface ILab : IColorSpace
     {
         double L { get; set; }
         double A { get; set; }
         double B { get; set; }
     }
 
-    public class Lab : ColorSpace, ILab
+    public class Lab : ColorSpace, ILab, IColorSpace
     {
         public double L { get { return this[0]; } set { this[0] = value; } }
         public double A { get { return this[1]; } set { this[1] = value; } }
@@ -49,14 +50,14 @@ namespace ColorMine.ColorSpaces
             return LabConverter.ToColor(this);
         }
     }
-	    public interface IRgb : IColorSpace
+	public interface IRgb : IColorSpace
     {
         double R { get; set; }
         double G { get; set; }
         double B { get; set; }
     }
 
-    public class Rgb : ColorSpace, IRgb
+    public class Rgb : ColorSpace, IRgb, IColorSpace
     {
         public double R { get { return this[0]; } set { this[0] = value; } }
         public double G { get { return this[1]; } set { this[1] = value; } }
@@ -72,14 +73,14 @@ namespace ColorMine.ColorSpaces
             return RgbConverter.ToColor(this);
         }
     }
-	    public interface IXyz : IColorSpace
+	public interface IXyz : IColorSpace
     {
         double X { get; set; }
         double Y { get; set; }
         double Z { get; set; }
     }
 
-    public class Xyz : ColorSpace, IXyz
+    public class Xyz : ColorSpace, IXyz, IColorSpace
     {
         public double X { get { return this[0]; } set { this[0] = value; } }
         public double Y { get { return this[1]; } set { this[1] = value; } }
@@ -95,4 +96,5 @@ namespace ColorMine.ColorSpaces
             return XyzConverter.ToColor(this);
         }
     }
-	}
+	
+}

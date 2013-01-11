@@ -96,7 +96,6 @@ namespace ColorMine.Test.ColorSpaces
         [TestClass]
         public class ToColor
         {
-            [TestMethod]
             private void ExpectedColorFromKnownValues(Color knownColor, double expectedX, double expectedY, double expectedZ)
             {
                 var target = new Xyz

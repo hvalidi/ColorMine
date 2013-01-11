@@ -93,7 +93,6 @@ namespace ColorMine.Test.ColorSpaces
         [TestClass]
         public class ToColor
         {
-            [TestMethod]
             private void ExpectedColorFromKnownValues(Color knownColor)
             {
                 var target = new Hsl

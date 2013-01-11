@@ -3,7 +3,7 @@ using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ColorMine.ColorSpaces;
 
-namespace Test.ColorMine.ColorSpaces
+namespace ColorMine.Test.ColorSpaces
 {
     public class RgbTest
     {

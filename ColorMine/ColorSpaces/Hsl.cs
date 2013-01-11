@@ -3,7 +3,15 @@ using System.Drawing;
 
 namespace ColorMine.ColorSpaces
 {
-    public class Hsl : ColorSpace
+    // Todo should be generated
+    public interface IHsl : IColorSpace
+    {
+        double H { get; }
+        double S { get; }
+        double L { get; }
+    }
+
+    public class Hsl : ColorSpace, IHsl
     {
         public double H { get { return this[0]; } set { this[0] = value; } }
         public double S { get { return this[1]; } set { this[1] = value; } }

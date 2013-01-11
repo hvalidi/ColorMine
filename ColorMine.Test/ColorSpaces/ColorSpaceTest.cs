@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Test.ColorMine.ColorSpaces
+namespace ColorMine.Test.ColorSpaces
 {
     public abstract class ColorSpaceTest
     {

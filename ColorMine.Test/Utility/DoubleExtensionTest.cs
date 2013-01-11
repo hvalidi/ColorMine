@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ColorMine.Utility;
 
-namespace Test.ColorMine.Utility
+namespace ColorMine.Test.Utility
 {
     public class DoubleExtensionTest
     {

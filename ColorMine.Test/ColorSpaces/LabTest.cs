@@ -3,7 +3,7 @@ using ColorMine.ColorSpaces;
 using ColorMine.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test.ColorMine.ColorSpaces
+namespace ColorMine.Test.ColorSpaces
 {
     public class LabTest : ColorSpaceTest
     {

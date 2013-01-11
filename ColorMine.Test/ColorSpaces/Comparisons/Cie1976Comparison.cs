@@ -4,7 +4,7 @@ using ColorMine.ColorSpaces.Comparisons;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ColorMine.Utility;
 
-namespace Test.ColorMine.ColorSpaces.Comparisons
+namespace ColorMine.Test.ColorSpaces.Comparisons
 {
     public class Cie1976ComparisonTest
     {
@@ -21,6 +21,7 @@ namespace Test.ColorMine.ColorSpaces.Comparisons
             [TestMethod]
             public void ReturnsZeroForSameColors()
             {
+                // Todo, should be mocking!!
                 var a = new Rgb();
                 a.Initialize(Color.Red);
 
@@ -33,6 +34,7 @@ namespace Test.ColorMine.ColorSpaces.Comparisons
             [TestMethod]
             public void ReturnsKnownValueForDissimilarColors()
             {
+                // Todo, should be mocking!!
                 var a = new Lab
                     {
                         L = 50,
@@ -53,6 +55,7 @@ namespace Test.ColorMine.ColorSpaces.Comparisons
             [TestMethod]
             public void ReturnsKnownValueForSimilarColors()
             {
+                // Todo, should be mocking!!
                 var a = new Lab
                 {
                     L = 88.17,

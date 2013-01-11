@@ -3,7 +3,15 @@ using System.Drawing;
 
 namespace ColorMine.ColorSpaces
 {
-    public class Xyz : ColorSpace
+    // Todo should be generated
+    public interface IXyz : IColorSpace
+    {
+        double X { get; }
+        double Y { get; }
+        double Z { get; }
+    }
+
+    public class Xyz : ColorSpace, IXyz
     {
         public double X { get { return this[0]; } set { this[0] = value; } }
         public double Y { get { return this[1]; } set { this[1] = value; } }

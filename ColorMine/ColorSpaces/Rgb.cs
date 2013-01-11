@@ -3,7 +3,15 @@ using System.Drawing;
 
 namespace ColorMine.ColorSpaces
 {
-    public class Rgb : ColorSpace
+    // Todo should be generated
+    public interface IRgb : IColorSpace
+    {
+        double R { get; set; }
+        double G { get; set; }
+        double B { get; set; }
+    }
+
+    public class Rgb : ColorSpace, IRgb
     {
         public double R { get { return this[0]; } set { ValidateRange(value); this[0] = value; } }
         public double G { get { return this[1]; } set { ValidateRange(value); this[1] = value; } }

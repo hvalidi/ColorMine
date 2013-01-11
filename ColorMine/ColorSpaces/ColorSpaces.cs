@@ -3,7 +3,7 @@ using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
 {
-
+    
     public interface IHsl : IColorSpace
     {
         double H { get; set; }
@@ -11,11 +11,11 @@ namespace ColorMine.ColorSpaces
         double L { get; set; }
     }
 
-    public class Hsl : ColorSpace, IHsl, IColorSpace
+    public class Hsl : ColorSpace, IHsl
     {
-        public double H { get { return this[0]; } set { this[0] = value; } }
-        public double S { get { return this[1]; } set { this[1] = value; } }
-        public double L { get { return this[2]; } set { this[2] = value; } }
+        public double H { get; set; }
+        public double S { get; set; }
+        public double L { get; set; }
 
         public override void Initialize(Color color)
         {
@@ -27,18 +27,19 @@ namespace ColorMine.ColorSpaces
             return HslConverter.ToColor(this);
         }
     }
-	public interface ILab : IColorSpace
+	
+    public interface ILab : IColorSpace
     {
         double L { get; set; }
         double A { get; set; }
         double B { get; set; }
     }
 
-    public class Lab : ColorSpace, ILab, IColorSpace
+    public class Lab : ColorSpace, ILab
     {
-        public double L { get { return this[0]; } set { this[0] = value; } }
-        public double A { get { return this[1]; } set { this[1] = value; } }
-        public double B { get { return this[2]; } set { this[2] = value; } }
+        public double L { get; set; }
+        public double A { get; set; }
+        public double B { get; set; }
 
         public override void Initialize(Color color)
         {
@@ -50,18 +51,19 @@ namespace ColorMine.ColorSpaces
             return LabConverter.ToColor(this);
         }
     }
-	public interface IRgb : IColorSpace
+	
+    public interface IRgb : IColorSpace
     {
         double R { get; set; }
         double G { get; set; }
         double B { get; set; }
     }
 
-    public class Rgb : ColorSpace, IRgb, IColorSpace
+    public class Rgb : ColorSpace, IRgb
     {
-        public double R { get { return this[0]; } set { this[0] = value; } }
-        public double G { get { return this[1]; } set { this[1] = value; } }
-        public double B { get { return this[2]; } set { this[2] = value; } }
+        public double R { get; set; }
+        public double G { get; set; }
+        public double B { get; set; }
 
         public override void Initialize(Color color)
         {
@@ -73,18 +75,19 @@ namespace ColorMine.ColorSpaces
             return RgbConverter.ToColor(this);
         }
     }
-	public interface IXyz : IColorSpace
+	
+    public interface IXyz : IColorSpace
     {
         double X { get; set; }
         double Y { get; set; }
         double Z { get; set; }
     }
 
-    public class Xyz : ColorSpace, IXyz, IColorSpace
+    public class Xyz : ColorSpace, IXyz
     {
-        public double X { get { return this[0]; } set { this[0] = value; } }
-        public double Y { get { return this[1]; } set { this[1] = value; } }
-        public double Z { get { return this[2]; } set { this[2] = value; } }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
 
         public override void Initialize(Color color)
         {

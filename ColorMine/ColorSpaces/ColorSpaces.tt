@@ -12,21 +12,20 @@ using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
 {
+    <# foreach (var spaceName in colorSpaces) { var ordinal = spaceName.ToUpper().ToCharArray();#>
 
-    <# foreach (var spaceName in colorSpaces) {
-		var ordinal = spaceName.ToUpper().ToCharArray();
-     #>public interface I<#=spaceName#> : IColorSpace
+    public interface I<#=spaceName#> : IColorSpace
     {
         double <#=ordinal[0]#> { get; set; }
         double <#=ordinal[1]#> { get; set; }
         double <#=ordinal[2]#> { get; set; }
     }
 
-    public class <#=spaceName#> : ColorSpace, I<#=spaceName#>, IColorSpace
+    public class <#=spaceName#> : ColorSpace, I<#=spaceName#>
     {
-        public double <#=ordinal[0]#> { get { return this[0]; } set { this[0] = value; } }
-        public double <#=ordinal[1]#> { get { return this[1]; } set { this[1] = value; } }
-        public double <#=ordinal[2]#> { get { return this[2]; } set { this[2] = value; } }
+        public double <#=ordinal[0]#> { get; set; }
+        public double <#=ordinal[1]#> { get; set; }
+        public double <#=ordinal[2]#> { get; set; }
 
         public override void Initialize(Color color)
         {

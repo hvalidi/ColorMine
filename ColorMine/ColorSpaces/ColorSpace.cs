@@ -24,20 +24,10 @@ namespace ColorMine.ColorSpaces
         /// <param name="comparer">Algorithm to use for comparison</param>
         /// <returns>the distance in 3d space as double</returns>
         double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer);
-
-        /// <summary>
-        /// Gets or sets values based on ordinal
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        double this[int index] { get; set; }
     }
 
     public abstract class ColorSpace : IColorSpace
     {
-        private readonly double[] _data = new double[3];
-        public double this[int index] { get { return _data[index]; } set { _data[index] = value; } }
-
         public abstract void Initialize(Color color);
 
         public abstract Color ToColor();
@@ -52,11 +42,7 @@ namespace ColorMine.ColorSpaces
             // Don't need to convert a type that's already there, just clone it
             if (typeof(T) == GetType())
             {
-                var clone = new T();
-                clone[0] = this[0];
-                clone[1] = this[1];
-                clone[2] = this[2];
-                return clone;
+                return (T)MemberwiseClone();
             }
 
             var newColorSpace = new T();

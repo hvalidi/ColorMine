@@ -7,7 +7,16 @@ namespace ColorMine.ColorSpaces
 
     public interface IColorSpace
     {
+        /// <summary>
+        /// Initialize settings from a System.Drawing.Color object
+        /// </summary>
+        /// <param name="color">System.Drawing.Color</param>
         void Initialize(Color color);
+        
+        /// <summary>
+        /// Convert the color space to a System.Drawing.Color object
+        /// </summary>
+        /// <returns>System.Drawing.Color object</returns>
         Color ToColor();
 
         /// <summary>
@@ -29,7 +38,6 @@ namespace ColorMine.ColorSpaces
     public abstract class ColorSpace : IColorSpace
     {
         public abstract void Initialize(Color color);
-
         public abstract Color ToColor();
 
         public double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer)
@@ -39,16 +47,14 @@ namespace ColorMine.ColorSpaces
 
         public T To<T>() where T : IColorSpace, new()
         {
-            // Don't need to convert a type that's already there, just clone it
             if (typeof(T) == GetType())
             {
                 return (T)MemberwiseClone();
             }
 
             var newColorSpace = new T();
-            newColorSpace.Initialize(ToColor());
+            newColorSpace.Initialize(ToColor());  // TODO I hate this call, could get rid of the Initialize method otherwise
             return newColorSpace;
         }
-
     }
 }

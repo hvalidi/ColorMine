@@ -12,9 +12,7 @@ namespace ColorMine.ColorSpaces.Conversions
 
         internal static void ToColorSpace(Color color, ILab item)
         {
-            var xyz = new Xyz();
-            xyz.Initialize(color);
-
+            var xyz = new Xyz(color);
 		    var x = PivotXyz(xyz.X / RefX);
 		    var y = PivotXyz(xyz.Y / RefY);
 		    var z = PivotXyz(xyz.Z / RefZ);

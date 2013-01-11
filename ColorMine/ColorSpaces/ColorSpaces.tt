@@ -7,7 +7,8 @@
 	const string availableColorSpaces = "Hsl,Lab,Rgb,Xyz";
 	var colorSpaces = availableColorSpaces.Split(',').ToList();
 #>
-<#@ output extension=".cs" #>using System.Drawing;
+<#@ output extension=".cs" #>//Note: This is a generated file.
+using System.Drawing;
 using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
@@ -26,6 +27,13 @@ namespace ColorMine.ColorSpaces
         public double <#=ordinal[0]#> { get; set; }
         public double <#=ordinal[1]#> { get; set; }
         public double <#=ordinal[2]#> { get; set; }
+
+		public <#=spaceName#>() {}
+
+        public <#=spaceName#>(Color color)
+        {
+            <#=spaceName#>Converter.ToColorSpace(color,this);
+        }
 
         public override void Initialize(Color color)
         {

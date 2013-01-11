@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿//Note: This is a generated file.
+using System.Drawing;
 using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
@@ -16,6 +17,13 @@ namespace ColorMine.ColorSpaces
         public double H { get; set; }
         public double S { get; set; }
         public double L { get; set; }
+
+		public Hsl() {}
+
+        public Hsl(Color color)
+        {
+            HslConverter.ToColorSpace(color,this);
+        }
 
         public override void Initialize(Color color)
         {
@@ -41,6 +49,13 @@ namespace ColorMine.ColorSpaces
         public double A { get; set; }
         public double B { get; set; }
 
+		public Lab() {}
+
+        public Lab(Color color)
+        {
+            LabConverter.ToColorSpace(color,this);
+        }
+
         public override void Initialize(Color color)
         {
             LabConverter.ToColorSpace(color,this);
@@ -65,6 +80,13 @@ namespace ColorMine.ColorSpaces
         public double G { get; set; }
         public double B { get; set; }
 
+		public Rgb() {}
+
+        public Rgb(Color color)
+        {
+            RgbConverter.ToColorSpace(color,this);
+        }
+
         public override void Initialize(Color color)
         {
             RgbConverter.ToColorSpace(color,this);
@@ -88,6 +110,13 @@ namespace ColorMine.ColorSpaces
         public double X { get; set; }
         public double Y { get; set; }
         public double Z { get; set; }
+
+		public Xyz() {}
+
+        public Xyz(Color color)
+        {
+            XyzConverter.ToColorSpace(color,this);
+        }
 
         public override void Initialize(Color color)
         {

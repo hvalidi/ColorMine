@@ -1,70 +1,19 @@
 ﻿using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ColorMine.ColorSpaces;
+using ColorMine.ColorSpaces.Conversions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ColorMine.Test.ColorSpaces
+namespace ColorMine.Test.ColorSpaces.Conversions
 {
-    public class HslTest : ConverterTest
+    public class HslConverterTest : ConverterTest
     {
         [TestClass]
-        public class H
+        public class ToColorSpace
         {
-            [TestMethod]
-            public void SavesAppropriateValue()
-            {
-                const double expected = 255;
-
-                var target = new Hsl
-                {
-                    H = expected
-                };
-
-                Assert.AreEqual(expected, target.H);
-            }
-        }
-
-        [TestClass]
-        public class S
-        {
-            [TestMethod]
-            public void SavesAppropriateValue()
-            {
-                const double expected = 0;
-
-                var target = new Hsl
-                {
-                    S = expected
-                };
-
-                Assert.AreEqual(expected, target.S);
-            }
-        }
-
-        [TestClass]
-        public class L
-        {
-            [TestMethod]
-            public void SavesAppropriateValue()
-            {
-                const double expected = 2.0;
-
-                var target = new Hsl
-                {
-                    L = expected
-                };
-
-                Assert.AreEqual(expected, target.L);
-            }
-
-        }
-
-        [TestClass]
-        public class Initialize
-        {
-            private void ExpectedValuesFromKnownColor(Color knownColor)
+            private static void ExpectedValuesFromKnownColor(Color knownColor)
             {
                 var target = new Hsl();
-                target.Initialize(knownColor);
+                HslConverter.ToColorSpace(knownColor, target);
 
                 Assert.AreEqual(knownColor.GetHue(), target.H);
                 Assert.AreEqual(knownColor.GetSaturation(), target.S);
@@ -93,17 +42,16 @@ namespace ColorMine.Test.ColorSpaces
         [TestClass]
         public class ToColor
         {
-            private void ExpectedColorFromKnownValues(Color knownColor)
+            private static void ExpectedColorFromKnownValues(Color knownColor)
             {
                 var target = new Hsl
-                {
-                    H = knownColor.GetHue(),
-                    S = knownColor.GetSaturation(),
-                    L = knownColor.GetBrightness()
-                };
+                    {
+                        H = knownColor.GetHue(),
+                        S = knownColor.GetSaturation(),
+                        L = knownColor.GetBrightness()
+                    };
 
-                var actual = target.ToColor();
-
+                var actual = HslConverter.ToColor(target);
 
                 Assert.IsTrue(CloseEnough(knownColor.R, actual.R));
                 Assert.IsTrue(CloseEnough(knownColor.G, actual.G));

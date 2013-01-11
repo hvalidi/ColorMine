@@ -55,8 +55,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ColorSpaces\ColorSpaceTest.cs" />
+    <Compile Include="ColorSpaces\Conversions\ConverterTest.cs" />
     <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
+    <Compile Include="ColorSpaces\Conversions\HslConverterTest.cs" />
+    <Compile Include="ColorSpaces\Conversions\LabConverterTest.cs" />
+    <Compile Include="ColorSpaces\Conversions\RgbConverterTest.cs" />
+    <Compile Include="ColorSpaces\Conversions\XyzConverterTest.cs" />
+    <Compile Include="ColorSpaces\ColorSpaceTest.cs" />
     <Compile Include="ColorSpaces\HslTest.cs" />
     <Compile Include="ColorSpaces\LabTest.cs" />
     <Compile Include="ColorSpaces\RgbTest.cs" />

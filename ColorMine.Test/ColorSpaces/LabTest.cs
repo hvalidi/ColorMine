@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ColorMine.Test.ColorSpaces
 {
-    public class LabTest : ColorSpaceTest
+    public class LabTest : ConverterTest
     {
         [TestClass]
         public class L

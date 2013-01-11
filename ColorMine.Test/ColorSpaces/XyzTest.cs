@@ -5,7 +5,7 @@ using ColorMine.Utility;
 
 namespace ColorMine.Test.ColorSpaces
 {
-    public class XyzTest : ColorSpaceTest
+    public class XyzTest : ConverterTest
     {
         [TestClass]
         public class X

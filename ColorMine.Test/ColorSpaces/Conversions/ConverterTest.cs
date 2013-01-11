@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColorMine.Test.ColorSpaces
+namespace ColorMine.Test.ColorSpaces.Conversions
 {
     public abstract class ConverterTest
     {

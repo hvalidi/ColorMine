@@ -5,7 +5,7 @@ namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class HslConverter
     {
-        internal static void ToColorSpace(Color color,IHsl item)
+        internal static void ToColorSpace(Color color, IHsl item)
         {
             item.H = color.GetHue();
             item.S = color.GetSaturation();
@@ -14,10 +14,10 @@ namespace ColorMine.ColorSpaces.Conversions
 
         internal static Color ToColor(IHsl item)
         {
-            var rangedH = item.H / 360.0;
-            var r = 0.0;
-            var g = 0.0;
-            var b = 0.0;
+            double rangedH = item.H/360.0;
+            double r = 0.0;
+            double g = 0.0;
+            double b = 0.0;
 
             if (!item.L.BasicallyEqualTo(0))
             {
@@ -27,23 +27,23 @@ namespace ColorMine.ColorSpaces.Conversions
                 }
                 else
                 {
-                    var temp2 = (item.L < 0.5) ? item.L * (1.0 + item.S) : item.L + item.S - (item.L * item.S);
-                    var temp1 = 2.0 * item.L - temp2;
+                    double temp2 = (item.L < 0.5) ? item.L*(1.0 + item.S) : item.L + item.S - (item.L*item.S);
+                    double temp1 = 2.0*item.L - temp2;
 
-                    r = GetColorComponent(temp1, temp2, rangedH + 1.0 / 3.0);
+                    r = GetColorComponent(temp1, temp2, rangedH + 1.0/3.0);
                     g = GetColorComponent(temp1, temp2, rangedH);
-                    b = GetColorComponent(temp1, temp2, rangedH - 1.0 / 3.0);
+                    b = GetColorComponent(temp1, temp2, rangedH - 1.0/3.0);
                 }
             }
-            return Color.FromArgb((int)(255 * r), (int)(255 * g), (int)(255 * b));
+            return Color.FromArgb((int) (255*r), (int) (255*g), (int) (255*b));
         }
 
         private static double GetColorComponent(double temp1, double temp2, double temp3)
         {
             temp3 = MoveIntoRange(temp3);
-            if (temp3 < 1.0 / 6.0)
+            if (temp3 < 1.0/6.0)
             {
-                return temp1 + (temp2 - temp1) * 6.0 * temp3;
+                return temp1 + (temp2 - temp1)*6.0*temp3;
             }
 
             if (temp3 < 0.5)
@@ -51,9 +51,9 @@ namespace ColorMine.ColorSpaces.Conversions
                 return temp2;
             }
 
-            if (temp3 < 2.0 / 3.0)
+            if (temp3 < 2.0/3.0)
             {
-                return temp1 + ((temp2 - temp1) * ((2.0 / 3.0) - temp3) * 6.0);
+                return temp1 + ((temp2 - temp1)*((2.0/3.0) - temp3)*6.0);
             }
 
             return temp1;

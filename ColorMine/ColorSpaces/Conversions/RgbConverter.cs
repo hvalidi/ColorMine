@@ -13,8 +13,7 @@ namespace ColorMine.ColorSpaces.Conversions
 
         internal static Color ToColor(IRgb item)
         {
-            return Color.FromArgb(255, (int)item.R, (int)item.G, (int)item.B);
+            return Color.FromArgb(255, (int) item.R, (int) item.G, (int) item.B);
         }
-
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace ColorMine.ColorSpaces.Comparisons
 {
-    interface IDeltaEComparison : IColorSpaceComparison
+    internal interface IDeltaEComparison : IColorSpaceComparison
     {
-
     }
 }

@@ -8,26 +8,26 @@ namespace ColorMine.ColorSpaces
     public interface IColorSpace
     {
         /// <summary>
-        /// Initialize settings from a System.Drawing.Color object
+        ///     Initialize settings from a System.Drawing.Color object
         /// </summary>
         /// <param name="color">System.Drawing.Color</param>
         void Initialize(Color color);
-        
+
         /// <summary>
-        /// Convert the color space to a System.Drawing.Color object
+        ///     Convert the color space to a System.Drawing.Color object
         /// </summary>
         /// <returns>System.Drawing.Color object</returns>
         Color ToColor();
 
         /// <summary>
-        /// Convert any IColorSpace to any other IColorSpace
+        ///     Convert any IColorSpace to any other IColorSpace
         /// </summary>
         /// <typeparam name="T">IColorSpace type to convert to</typeparam>
         /// <returns></returns>
         T To<T>() where T : IColorSpace, new();
 
         /// <summary>
-        /// Determine how close two IColorSpaces are to each other using a passed in algorithm
+        ///     Determine how close two IColorSpaces are to each other using a passed in algorithm
         /// </summary>
         /// <param name="compareToValue">Other IColorSpace to compare to</param>
         /// <param name="comparer">Algorithm to use for comparison</param>
@@ -47,13 +47,14 @@ namespace ColorMine.ColorSpaces
 
         public T To<T>() where T : IColorSpace, new()
         {
-            if (typeof(T) == GetType())
+            if (typeof (T) == GetType())
             {
-                return (T)MemberwiseClone();
+                return (T) MemberwiseClone();
             }
 
             var newColorSpace = new T();
-            newColorSpace.Initialize(ToColor());  // TODO I hate this call, could get rid of the Initialize method otherwise
+            newColorSpace.Initialize(ToColor());
+                // TODO I hate this call, could get rid of the Initialize method otherwise
             return newColorSpace;
         }
     }

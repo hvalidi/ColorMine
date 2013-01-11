@@ -3,7 +3,7 @@
     public interface IColorSpaceComparison
     {
         /// <summary>
-        /// Compares two colors
+        ///     Compares two colors
         /// </summary>
         /// <param name="a">The first color</param>
         /// <param name="b">The second color</param>

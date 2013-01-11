@@ -23,11 +23,6 @@ namespace ColorMine.Test.ColorSpaces
                 Assert.AreEqual(expected, target.X);
             }
 
-            [TestMethod]
-            public void ThrowsExceptionForInappropriateValue()
-            {
-                Assert.Inconclusive("Not sure of Range");
-            }
         }
 
         [TestClass]
@@ -44,12 +39,6 @@ namespace ColorMine.Test.ColorSpaces
                 };
 
                 Assert.AreEqual(expected, target.Y);
-            }
-
-            [TestMethod]
-            public void ThrowsExceptionForInappropriateValue()
-            {
-                Assert.Inconclusive("Not sure of Range");
             }
         }
 
@@ -69,11 +58,6 @@ namespace ColorMine.Test.ColorSpaces
                 Assert.AreEqual(expected, target.Z);
             }
 
-            [TestMethod]
-            public void ThrowsExceptionForInappropriateValue()
-            {
-                Assert.Inconclusive("Not sure of Range");
-            }
         }
 
         [TestClass]

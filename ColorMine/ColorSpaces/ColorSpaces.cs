@@ -18,8 +18,6 @@ namespace ColorMine.ColorSpaces
         public double S { get; set; }
         public double L { get; set; }
 
-		public Hsl() {}
-
         public override void Initialize(Color color)
         {
             HslConverter.ToColorSpace(color,this);
@@ -43,8 +41,6 @@ namespace ColorMine.ColorSpaces
         public double L { get; set; }
         public double A { get; set; }
         public double B { get; set; }
-
-		public Lab() {}
 
         public override void Initialize(Color color)
         {
@@ -70,8 +66,6 @@ namespace ColorMine.ColorSpaces
         public double G { get; set; }
         public double B { get; set; }
 
-		public Rgb() {}
-
         public override void Initialize(Color color)
         {
             RgbConverter.ToColorSpace(color,this);
@@ -95,8 +89,6 @@ namespace ColorMine.ColorSpaces
         public double X { get; set; }
         public double Y { get; set; }
         public double Z { get; set; }
-
-		public Xyz() {}
 
         public override void Initialize(Color color)
         {

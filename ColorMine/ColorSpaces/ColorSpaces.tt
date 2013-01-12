@@ -28,8 +28,6 @@ namespace ColorMine.ColorSpaces
         public double <#=ordinal[1]#> { get; set; }
         public double <#=ordinal[2]#> { get; set; }
 
-		public <#=spaceName#>() {}
-
         public override void Initialize(Color color)
         {
             <#=spaceName#>Converter.ToColorSpace(color,this);

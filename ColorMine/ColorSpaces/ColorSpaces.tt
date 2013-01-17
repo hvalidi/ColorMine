@@ -1,11 +1,16 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml.dll" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
+<#@ import Namespace="System.Xml" #>
+<#@ import Namespace="System.IO" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
-	const string availableColorSpaces = "Hsl,Lab,Rgb,Xyz";
-	var colorSpaces = availableColorSpaces.Split(',').ToList();
+	var document = new XmlDocument();
+	var file = Host.ResolvePath("ColorSpaces.xml");
+	document.Load(file);
+	var colorSpaces = document.SelectNodes("colorSpaces/colorSpace");
 #>
 <#@ output extension=".cs" #>//Note: This is a generated file.
 using System.Drawing;
@@ -13,20 +18,21 @@ using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
 {
-    <# foreach (var spaceName in colorSpaces) { var ordinal = spaceName.ToUpper().ToCharArray();#>
-
-    public interface I<#=spaceName#> : IColorSpace
+<# foreach (XmlNode space in colorSpaces) {
+var spaceName = space.Attributes["name"].Value;
+var points = space.SelectNodes("dataPoints/dataPoint");#>
+	public interface I<#=spaceName#> : IColorSpace
     {
-        double <#=ordinal[0]#> { get; set; }
-        double <#=ordinal[1]#> { get; set; }
-        double <#=ordinal[2]#> { get; set; }
+<# foreach(XmlNode  point in points) { #>
+		double <#=point.Attributes["label"].Value#> { get; set; }
+<# } #>
     }
 
     public class <#=spaceName#> : ColorSpace, I<#=spaceName#>
     {
-        public double <#=ordinal[0]#> { get; set; }
-        public double <#=ordinal[1]#> { get; set; }
-        public double <#=ordinal[2]#> { get; set; }
+<# foreach(XmlNode point in points) { #>
+		public double <#=point.Attributes["label"].Value#> { get; set; }
+<# } #>
 
         public override void Initialize(Color color)
         {
@@ -38,6 +44,6 @@ namespace ColorMine.ColorSpaces
             return <#=spaceName#>Converter.ToColor(this);
         }
     }
-	<# } #>
 
+<# } #>
 }

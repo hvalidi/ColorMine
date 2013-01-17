@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<colorSpaces>
+  <colorSpace name="Rgb">
+    <description>Rgb Color Space</description>
+    <dataPoints>
+      <dataPoint label="R" description="Red" min="0" max="255" />
+      <dataPoint label="G" description="Green" min="0" max="255" />
+      <dataPoint label="B" description="Blue" min="0" max="255" />
+    </dataPoints>
+  </colorSpace>
+  <colorSpace name="Xyz">
+    <dataPoints>
+      <dataPoint label="X"/>
+      <dataPoint label="Y"/>
+      <dataPoint label="Z"/>
+    </dataPoints>
+  </colorSpace>
+  <colorSpace name="Hsl">
+    <dataPoints>
+      <dataPoint label="H"/>
+      <dataPoint label="S"/>
+      <dataPoint label="L"/>
+    </dataPoints>
+  </colorSpace>
+  <colorSpace name="Lab">
+    <dataPoints>
+      <dataPoint label="L"/>
+      <dataPoint label="A"/>
+      <dataPoint label="B"/>
+    </dataPoints>
+  </colorSpace>
+</colorSpaces>

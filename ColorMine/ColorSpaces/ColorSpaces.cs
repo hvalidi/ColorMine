@@ -100,4 +100,78 @@ namespace ColorMine.ColorSpaces
         }
     }
 
+	public interface IYxy : IColorSpace
+    {
+		double Y1 { get; set; }
+		double X { get; set; }
+		double Y2 { get; set; }
+    }
+
+    public class Yxy : ColorSpace, IYxy
+    {
+		public double Y1 { get; set; }
+		public double X { get; set; }
+		public double Y2 { get; set; }
+
+        public override void Initialize(Color color)
+        {
+            YxyConverter.ToColorSpace(color,this);
+        }
+
+        public override Color ToColor()
+        {
+            return YxyConverter.ToColor(this);
+        }
+    }
+
+	public interface ICmy : IColorSpace
+    {
+		double C { get; set; }
+		double M { get; set; }
+		double Y { get; set; }
+    }
+
+    public class Cmy : ColorSpace, ICmy
+    {
+		public double C { get; set; }
+		public double M { get; set; }
+		public double Y { get; set; }
+
+        public override void Initialize(Color color)
+        {
+            CmyConverter.ToColorSpace(color,this);
+        }
+
+        public override Color ToColor()
+        {
+            return CmyConverter.ToColor(this);
+        }
+    }
+
+	public interface ICmyk : IColorSpace
+    {
+		double C { get; set; }
+		double M { get; set; }
+		double Y { get; set; }
+		double K { get; set; }
+    }
+
+    public class Cmyk : ColorSpace, ICmyk
+    {
+		public double C { get; set; }
+		public double M { get; set; }
+		public double Y { get; set; }
+		public double K { get; set; }
+
+        public override void Initialize(Color color)
+        {
+            CmykConverter.ToColorSpace(color,this);
+        }
+
+        public override Color ToColor()
+        {
+            return CmykConverter.ToColor(this);
+        }
+    }
+
 }

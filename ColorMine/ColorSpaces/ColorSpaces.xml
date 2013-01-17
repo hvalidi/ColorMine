@@ -23,10 +23,35 @@
     </dataPoints>
   </colorSpace>
   <colorSpace name="Lab">
+    <description>CIE-L*ab</description>
     <dataPoints>
       <dataPoint label="L"/>
       <dataPoint label="A"/>
       <dataPoint label="B"/>
+    </dataPoints>
+  </colorSpace>
+  <colorSpace name="Yxy">
+    <dataPoints>
+      <dataPoint label="Y1"/>
+      <dataPoint label="X"/>
+      <dataPoint label="Y2"/>
+    </dataPoints>
+  </colorSpace>
+  <colorSpace name="Cmy">
+    <description>Cmy</description>
+    <dataPoints>
+      <dataPoint label="C"/>
+      <dataPoint label="M"/>
+      <dataPoint label="Y"/>
+    </dataPoints>
+  </colorSpace>
+  <colorSpace name="Cmyk">
+    <description>Cmyk</description>
+    <dataPoints>
+      <dataPoint label="C"/>
+      <dataPoint label="M"/>
+      <dataPoint label="Y"/>
+      <dataPoint label="K"/>
     </dataPoints>
   </colorSpace>
 </colorSpaces>

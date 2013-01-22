@@ -13,9 +13,9 @@ namespace ColorMine.ColorSpaces.Conversions
             cmy.Initialize(color);
 
             var k = 1.0;
-            if (item.C < k) k = item.C;
-            if (item.M < k) k = item.M;
-            if (item.Y < k) k = item.Y;
+            if (cmy.C < k) k = cmy.C;
+            if (cmy.M < k) k = cmy.M;
+            if (cmy.Y < k) k = cmy.Y;
             item.K = k;
 
             if (k.BasicallyEqualTo(1))
@@ -26,9 +26,9 @@ namespace ColorMine.ColorSpaces.Conversions
             }
             else
             {
-                item.C = (item.C - k)/(1 - k);
-                item.M = (item.M - k)/(1 - k);
-                item.Y = (item.Y - k)/(1 - k);
+                item.C = (cmy.C - k) / (1 - k);
+                item.M = (cmy.M - k) / (1 - k);
+                item.Y = (cmy.Y - k) / (1 - k);
             }
         }
 

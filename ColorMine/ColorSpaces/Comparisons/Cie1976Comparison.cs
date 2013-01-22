@@ -2,7 +2,7 @@
 
 namespace ColorMine.ColorSpaces.Comparisons
 {
-    internal class Cie1976Comparison : IDeltaEComparison
+    public class Cie1976Comparison : IDeltaEComparison
     {
         public double Compare(IColorSpace colorA, IColorSpace colorB)
         {

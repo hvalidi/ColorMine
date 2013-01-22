@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <colorSpaces>
   <colorSpace name="Rgb">
-    <description>Rgb Color Space</description>
     <dataPoints>
       <dataPoint label="R" description="Red" min="0" max="255" />
       <dataPoint label="G" description="Green" min="0" max="255" />
@@ -22,8 +21,7 @@
       <dataPoint label="L"/>
     </dataPoints>
   </colorSpace>
-  <colorSpace name="Lab">
-    <description>CIE-L*ab</description>
+  <colorSpace name="Lab" description="CIE-L*ab">
     <dataPoints>
       <dataPoint label="L"/>
       <dataPoint label="A"/>
@@ -38,7 +36,6 @@
     </dataPoints>
   </colorSpace>
   <colorSpace name="Cmy">
-    <description>Cmy</description>
     <dataPoints>
       <dataPoint label="C"/>
       <dataPoint label="M"/>
@@ -46,7 +43,6 @@
     </dataPoints>
   </colorSpace>
   <colorSpace name="Cmyk">
-    <description>Cmyk</description>
     <dataPoints>
       <dataPoint label="C"/>
       <dataPoint label="M"/>

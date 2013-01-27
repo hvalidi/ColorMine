@@ -167,7 +167,7 @@ namespace ColorMine.Test.ColorSpaces
             public void RedLabToCmyk()
             {
 				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
-				var expectedColor = new Cmyk { C = 0, M = .99970, Y = 100, K = 0, };
+				var expectedColor = new Cmyk { C = 0, M = .99970, Y = 1, K = 0, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }

@@ -13,7 +13,7 @@ namespace ColorMine.Utility
 
         internal static bool BasicallyEqualTo(this double a, double b, double precision)
         {
-            return Math.Abs(a - b) <= Math.Abs(a*precision);
+            return Math.Abs(a - b) <= precision;
         }
     }
 }

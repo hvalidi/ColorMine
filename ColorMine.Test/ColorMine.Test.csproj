@@ -55,23 +55,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ColorSpaces\Conversions\ConverterTest.cs" />
+    <Compile Include="ColorSpaces\ConversionTests.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConversionTests.tt</DependentUpon>
+    </Compile>
     <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
-    <Compile Include="ColorSpaces\Conversions\CmyConverterTest.cs" />
-    <Compile Include="ColorSpaces\Conversions\CmykConverterTest.cs" />
-    <Compile Include="ColorSpaces\Conversions\YxyConverterTest.cs" />
-    <Compile Include="ColorSpaces\Conversions\HslConverterTest.cs" />
-    <Compile Include="ColorSpaces\Conversions\LabConverterTest.cs" />
-    <Compile Include="ColorSpaces\Conversions\RgbConverterTest.cs" />
-    <Compile Include="ColorSpaces\Conversions\XyzConverterTest.cs" />
-    <Compile Include="ColorSpaces\ColorSpaceTest.cs" />
-    <Compile Include="ColorSpaces\CmyTest.cs" />
-    <Compile Include="ColorSpaces\CmykTest.cs" />
-    <Compile Include="ColorSpaces\YyzTest.cs" />
-    <Compile Include="ColorSpaces\HslTest.cs" />
-    <Compile Include="ColorSpaces\LabTest.cs" />
-    <Compile Include="ColorSpaces\RgbTest.cs" />
-    <Compile Include="ColorSpaces\XyzTest.cs" />
     <Compile Include="Utility\DoubleExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,7 +71,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ColorSpaces\ConversionResults.xml" />
     <Content Include="Lib\Moq.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ColorSpaces\ConversionTests.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConversionTests.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConversionResults>
+  <Rgb Name="White" R="255" G="255" B="255">
+    <Lab L="100" A="0" B="-.010" />
+    <Xyz X="95.050" Y="100" Z="108.900"/>
+    <Cmy C="0" M="0" Y="0"/>
+    <Cmyk C="0" M="0" Y="0" K="0"/>
+    <Yxy Y1="100" X=".31272" Y2=".32900"/>
+  </Rgb>
+  <Rgb Name="Black" R="0" G="0" B="0">
+    <Lab L="0" A="0" B="0" />
+    <Xyz X="0" Y="0" Z="0"/>
+    <Cmy C="1" M="1" Y="1"/>
+    <Cmyk C="0" M="0" Y="0" K="100"/>
+    <Yxy Y1="0" X="0" Y2="0"/>
+  </Rgb>
+</ConversionResults>

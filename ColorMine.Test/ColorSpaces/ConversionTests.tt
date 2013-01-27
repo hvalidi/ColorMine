@@ -14,40 +14,32 @@
 #>
 <#@ output extension=".cs" #>//Note: This is a generated file.
 using ColorMine.ColorSpaces;
-using ColorMine.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ColorMine.Test.ColorSpaces
 {
-<# foreach (XmlNode fromSpace in colors) { var fromName = fromSpace.Name; foreach (XmlNode toSpace in fromSpace.ChildNodes) { var toName = toSpace.Name; #>
-	public class <#= fromSpace.Attributes["Name"].Value #><#= fromName #>To<#= toName #>Test
+
+<# foreach (XmlNode fromSpace in colors) { var fromName = fromSpace.Name; #>
+	public class <#= fromName #>Test
     {
-		private const double Precision = .01;
-
-        [TestClass]
-        public class <#= fromName #>To<#= toName #>
+		[TestClass]
+        public class To : ColorSpaceTest
         {
-			private static void ExpectedValuesForKnownColor(IColorSpace knownColor, I<#= toName #> expectedColor)
+<# foreach(XmlNode test in fromSpace.ChildNodes) {
+var colorName = test.Attributes["Name"].Value;
+foreach (XmlNode toSpace in test.ChildNodes) { var toName = toSpace.Name; #>
+			
+			[TestMethod]
+            public void <#= colorName #><#= fromName #>To<#= toName #>()
             {
-                var target = knownColor.To<<#= toName #>>();
-
-                // TODO Shouldn't use ColorMine code to validate ColorMine code...
-<# foreach (XmlNode attribute in toSpace.Attributes) { if(attribute.Name != "Name") { #>
-				Assert.IsTrue(expectedColor.<#= attribute.Name #>.BasicallyEqualTo(target.<#= attribute.Name #>,Precision));
-<# } } #>
-            }
-
-            [TestMethod]
-            public void ExpectedValuesFor<#= fromSpace.Attributes["Name"].Value #>()
-            {
-				var knownColor = new <#= fromName #> {<# foreach (XmlNode attribute in fromSpace.Attributes) { if(attribute.Name != "Name") { #> <#= attribute.Name #> = <#= attribute.Value #>,<# } } #> };
+				var knownColor = new <#= fromName #> {<# foreach (XmlNode attribute in test.Attributes) { if(attribute.Name != "Name") { #> <#= attribute.Name #> = <#= attribute.Value #>,<# } } #> };
 				var expectedColor = new <#= toName #> {<# foreach (XmlNode attribute in toSpace.Attributes) { if(attribute.Name != "Name") { #> <#= attribute.Name #> = <#= attribute.Value #>,<# } } #> };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }
+<# } } #>
+
         }
 	}
-	<# } #>
 <# } #>
-
 }

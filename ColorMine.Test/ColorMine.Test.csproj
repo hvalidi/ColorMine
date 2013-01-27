@@ -55,6 +55,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ColorSpaces\ColorSpaceTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorSpaceTest.tt</DependentUpon>
+    </Compile>
     <Compile Include="ColorSpaces\ConversionTests.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +83,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ColorSpaces\ColorSpaceTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorSpaceTest.cs</LastGenOutput>
+    </None>
     <None Include="ColorSpaces\ConversionTests.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ConversionTests.cs</LastGenOutput>

@@ -105,7 +105,7 @@ namespace ColorMine.Test.ColorSpaces
             public void BlackRgbToCmyk()
             {
 				var knownColor = new Rgb { R = 0, G = 0, B = 0, };
-				var expectedColor = new Cmyk { C = 0, M = 0, Y = 0, K = 100, };
+				var expectedColor = new Cmyk { C = 0, M = 0, Y = 0, K = 1, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }

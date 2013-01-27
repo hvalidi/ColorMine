@@ -10,8 +10,12 @@ namespace ColorMine.ColorSpaces.Conversions
             xyz.Initialize(color);
 
             item.Y1 = xyz.Y;
-            item.X = xyz.X / (xyz.X + xyz.Y + xyz.Z);
-            item.Y2 = xyz.Y / (xyz.X + xyz.Y + xyz.Z);
+
+            var xDividend = xyz.X + xyz.Y + xyz.Z;
+            item.X = 0 == xDividend ? 0 : xyz.X / xDividend;
+
+            var y2Dividend = xyz.X + xyz.Y + xyz.Z;
+            item.Y2 = 0 == y2Dividend ? 0 : xyz.Y / (xyz.X + xyz.Y + xyz.Z);
         }
 
         internal static Color ToColor(IYxy item)

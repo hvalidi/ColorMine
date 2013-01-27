@@ -19,7 +19,7 @@ namespace ColorMine.ColorSpaces.Conversions
             var y = PivotXyz(xyz.Y/RefY);
             var z = PivotXyz(xyz.Z/RefZ);
 
-            item.L = 116*y - 16;
+            item.L = Math.Max(0,116*y - 16);
             item.A = 500*(x - y);
             item.B = 200*(y - z);
         }

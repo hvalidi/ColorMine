@@ -38,7 +38,7 @@ namespace ColorMine.Test.ColorSpaces
 
 			// TODO Shouldn't use ColorMine code to validate ColorMine code...
 <# foreach (XmlNode attribute in toSpace.Attributes) { if(attribute.Name != "Name") { #>
-			Assert.IsTrue(expectedColor.<#= attribute.Name #>.BasicallyEqualTo(target.<#= attribute.Name #>,Precision));
+			Assert.IsTrue(expectedColor.<#= attribute.Name #>.BasicallyEqualTo(target.<#= attribute.Name #>,Precision),expectedColor.<#= attribute.Name #> + " != " + target.<#= attribute.Name #>);
 <# } }#>
 		}
 <# } #>

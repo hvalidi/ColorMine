@@ -277,5 +277,141 @@ namespace ColorMine.Test.ColorSpaces
             }
         }
 	}
+		public class RedLabToRgbTest
+    {
+		private const double Precision = .01;
+
+        [TestClass]
+        public class LabToRgb
+        {
+			private static void ExpectedValuesForKnownColor(IColorSpace knownColor, IRgb expectedColor)
+            {
+                var target = knownColor.To<Rgb>();
+
+                // TODO Shouldn't use ColorMine code to validate ColorMine code...
+				Assert.IsTrue(expectedColor.R.BasicallyEqualTo(target.R,Precision));
+				Assert.IsTrue(expectedColor.G.BasicallyEqualTo(target.G,Precision));
+				Assert.IsTrue(expectedColor.B.BasicallyEqualTo(target.B,Precision));
+            }
+
+            [TestMethod]
+            public void ExpectedValuesForRed()
+            {
+				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
+				var expectedColor = new Rgb { R = 255, G = 0.8, B = 0, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+        }
+	}
+		public class RedLabToXyzTest
+    {
+		private const double Precision = .01;
+
+        [TestClass]
+        public class LabToXyz
+        {
+			private static void ExpectedValuesForKnownColor(IColorSpace knownColor, IXyz expectedColor)
+            {
+                var target = knownColor.To<Xyz>();
+
+                // TODO Shouldn't use ColorMine code to validate ColorMine code...
+				Assert.IsTrue(expectedColor.X.BasicallyEqualTo(target.X,Precision));
+				Assert.IsTrue(expectedColor.Y.BasicallyEqualTo(target.Y,Precision));
+				Assert.IsTrue(expectedColor.Z.BasicallyEqualTo(target.Z,Precision));
+            }
+
+            [TestMethod]
+            public void ExpectedValuesForRed()
+            {
+				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
+				var expectedColor = new Xyz { X = 41.240, Y = 21.260, Z = 1.930, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+        }
+	}
+		public class RedLabToCmyTest
+    {
+		private const double Precision = .01;
+
+        [TestClass]
+        public class LabToCmy
+        {
+			private static void ExpectedValuesForKnownColor(IColorSpace knownColor, ICmy expectedColor)
+            {
+                var target = knownColor.To<Cmy>();
+
+                // TODO Shouldn't use ColorMine code to validate ColorMine code...
+				Assert.IsTrue(expectedColor.C.BasicallyEqualTo(target.C,Precision));
+				Assert.IsTrue(expectedColor.M.BasicallyEqualTo(target.M,Precision));
+				Assert.IsTrue(expectedColor.Y.BasicallyEqualTo(target.Y,Precision));
+            }
+
+            [TestMethod]
+            public void ExpectedValuesForRed()
+            {
+				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
+				var expectedColor = new Cmy { C = 0, M = .99970, Y = 1, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+        }
+	}
+		public class RedLabToCmykTest
+    {
+		private const double Precision = .01;
+
+        [TestClass]
+        public class LabToCmyk
+        {
+			private static void ExpectedValuesForKnownColor(IColorSpace knownColor, ICmyk expectedColor)
+            {
+                var target = knownColor.To<Cmyk>();
+
+                // TODO Shouldn't use ColorMine code to validate ColorMine code...
+				Assert.IsTrue(expectedColor.C.BasicallyEqualTo(target.C,Precision));
+				Assert.IsTrue(expectedColor.M.BasicallyEqualTo(target.M,Precision));
+				Assert.IsTrue(expectedColor.Y.BasicallyEqualTo(target.Y,Precision));
+				Assert.IsTrue(expectedColor.K.BasicallyEqualTo(target.K,Precision));
+            }
+
+            [TestMethod]
+            public void ExpectedValuesForRed()
+            {
+				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
+				var expectedColor = new Cmyk { C = 0, M = .99970, Y = 100, K = 0, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+        }
+	}
+		public class RedLabToYxyTest
+    {
+		private const double Precision = .01;
+
+        [TestClass]
+        public class LabToYxy
+        {
+			private static void ExpectedValuesForKnownColor(IColorSpace knownColor, IYxy expectedColor)
+            {
+                var target = knownColor.To<Yxy>();
+
+                // TODO Shouldn't use ColorMine code to validate ColorMine code...
+				Assert.IsTrue(expectedColor.Y1.BasicallyEqualTo(target.Y1,Precision));
+				Assert.IsTrue(expectedColor.X.BasicallyEqualTo(target.X,Precision));
+				Assert.IsTrue(expectedColor.Y2.BasicallyEqualTo(target.Y2,Precision));
+            }
+
+            [TestMethod]
+            public void ExpectedValuesForRed()
+            {
+				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
+				var expectedColor = new Yxy { Y1 = 21.260, X = 0.64007, Y2 = .32997, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+        }
+	}
 	
 }

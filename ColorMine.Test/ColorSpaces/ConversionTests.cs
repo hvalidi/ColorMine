@@ -66,6 +66,15 @@ namespace ColorMine.Test.ColorSpaces
             }
 			
 			[TestMethod]
+            public void WhiteRgbToHsl()
+            {
+				var knownColor = new Rgb { R = 255, G = 255, B = 255, };
+				var expectedColor = new Hsl { H = 0, S = 0, L = 1, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
             public void BlackRgbToRgb()
             {
 				var knownColor = new Rgb { R = 0, G = 0, B = 0, };
@@ -115,6 +124,78 @@ namespace ColorMine.Test.ColorSpaces
             {
 				var knownColor = new Rgb { R = 0, G = 0, B = 0, };
 				var expectedColor = new Yxy { Y1 = 0, X = 0, Y2 = 0, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void BlackRgbToHsl()
+            {
+				var knownColor = new Rgb { R = 0, G = 0, B = 0, };
+				var expectedColor = new Hsl { H = 0, S = 0, L = 0, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToRgb()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Rgb { R = 218, G = 165, B = 32, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToLab()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Lab { L = 70.816, A = 8.525, B = 68.765, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToXyz()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Xyz { X = 42.629, Y = 41.920, Z = 7.211, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToCmy()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Cmy { C = .14510, M = .35294, Y = .87451, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToCmyk()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Cmyk { C = 0, M = .24312, Y = .85321, K = .14510, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToYxy()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Yxy { Y1 = 41.920, X = .46457, Y2 = .45684, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void GoldenrodRgbToHsl()
+            {
+				var knownColor = new Rgb { R = 218, G = 165, B = 32, };
+				var expectedColor = new Hsl { H = 43, S = 74, L = 49, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }
@@ -177,6 +258,15 @@ namespace ColorMine.Test.ColorSpaces
             {
 				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
 				var expectedColor = new Yxy { Y1 = 21.260, X = 0.64007, Y2 = .32997, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void RedLabToHsl()
+            {
+				var knownColor = new Lab { L = 53.233, A = 80.109, B = 67.220, };
+				var expectedColor = new Hsl { H = 0, S = 1, L = .5, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }

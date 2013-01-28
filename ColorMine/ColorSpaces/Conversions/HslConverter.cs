@@ -27,8 +27,8 @@ namespace ColorMine.ColorSpaces.Conversions
                 }
                 else
                 {
-                    double temp2 = (item.L < 0.5) ? item.L*(1.0 + item.S) : item.L + item.S - (item.L*item.S);
-                    double temp1 = 2.0*item.L - temp2;
+                    var temp2 = (item.L < 0.5) ? item.L*(1.0 + item.S) : item.L + item.S - (item.L*item.S);
+                    var temp1 = 2.0*item.L - temp2;
 
                     r = GetColorComponent(temp1, temp2, rangedH + 1.0/3.0);
                     g = GetColorComponent(temp1, temp2, rangedH);

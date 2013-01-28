@@ -202,6 +202,148 @@ namespace ColorMine.Test.ColorSpaces
 
         }
 	}
+	public class CmyTest
+    {
+		[TestClass]
+        public class To : ColorSpaceTest
+        {
+			
+			[TestMethod]
+            public void SteelBlueCmyToRgb()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Rgb { R = 70, G = 130, B = 180, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void SteelBlueCmyToLab()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Lab { L = 52.467, A = -4.070, B = -32.198, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void SteelBlueCmyToXyz()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Xyz { X = 18.746, Y = 20.562, Z = 46.161, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void SteelBlueCmyToCmy()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void SteelBlueCmyToCmyk()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Cmyk { C = .61111, M = .27778, Y = 0, K = .29412, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void SteelBlueCmyToYxy()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Yxy { Y1 = 20.562, X = .21934, Y2 = .24058, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void SteelBlueCmyToHsl()
+            {
+				var knownColor = new Cmy { C = .72549, M = .49020, Y = .29412, };
+				var expectedColor = new Hsl { H = 207, S = 44, L = 49, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+
+        }
+	}
+	public class CmykTest
+    {
+		[TestClass]
+        public class To : ColorSpaceTest
+        {
+			
+			[TestMethod]
+            public void DarkVioletCmykToRgb()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Rgb { R = 148, G = 0, B = 211, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void DarkVioletCmykToLab()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Lab { L = 39.579, A = 76.336, B = -70.378, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void DarkVioletCmykToXyz()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Xyz { X = 23.970, Y = 10.999, Z = 62.487, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void DarkVioletCmykToCmy()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Cmy { C = .41961, M = 1, Y = .17255, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void DarkVioletCmykToCmyk()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void DarkVioletCmykToYxy()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Yxy { Y1 = 10.99, X = .24596, Y2 = .11286, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+			
+			[TestMethod]
+            public void DarkVioletCmykToHsl()
+            {
+				var knownColor = new Cmyk { C = .29858, M = 1, Y = 0, K = .17255, };
+				var expectedColor = new Hsl { H = 282, S = 100, L = 41, };
+
+                ExpectedValuesForKnownColor(knownColor,expectedColor);
+            }
+
+        }
+	}
 	public class LabTest
     {
 		[TestClass]

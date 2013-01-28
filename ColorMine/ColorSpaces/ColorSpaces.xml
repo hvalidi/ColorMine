@@ -16,16 +16,16 @@
   </colorSpace>
   <colorSpace name="Hsl">
     <dataPoints>
-      <dataPoint label="H"/>
-      <dataPoint label="S"/>
-      <dataPoint label="L"/>
+      <dataPoint label="H" min="0" max="360"/>
+      <dataPoint label="S" min="0" max="100"/>
+      <dataPoint label="L" min="0" max="100"/>
     </dataPoints>
   </colorSpace>
   <colorSpace name="Lab" description="CIE-L*ab">
     <dataPoints>
-      <dataPoint label="L"/>
-      <dataPoint label="A"/>
-      <dataPoint label="B"/>
+      <dataPoint label="L" min="0" max="100"/>
+      <dataPoint label="A" min="-128" max="128"/>
+      <dataPoint label="B" min="-128" max="128"/>
     </dataPoints>
   </colorSpace>
   <colorSpace name="Yxy">
@@ -37,17 +37,17 @@
   </colorSpace>
   <colorSpace name="Cmy">
     <dataPoints>
-      <dataPoint label="C"/>
-      <dataPoint label="M"/>
-      <dataPoint label="Y"/>
+      <dataPoint label="C" min="0" max="1"/>
+      <dataPoint label="M" min="0" max="1"/>
+      <dataPoint label="Y" min="0" max="1"/>
     </dataPoints>
   </colorSpace>
   <colorSpace name="Cmyk">
     <dataPoints>
-      <dataPoint label="C"/>
-      <dataPoint label="M"/>
-      <dataPoint label="Y"/>
-      <dataPoint label="K"/>
+      <dataPoint label="C" min="0" max="1"/>
+      <dataPoint label="M" min="0" max="1"/>
+      <dataPoint label="Y" min="0" max="1"/>
+      <dataPoint label="K" min="0" max="1"/>
     </dataPoints>
   </colorSpace>
 </colorSpaces>

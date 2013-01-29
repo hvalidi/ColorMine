@@ -8,8 +8,8 @@ namespace ColorMine.ColorSpaces.Conversions
         internal static void ToColorSpace(Color color, IHsl item)
         {
             item.H = color.GetHue();
-            item.S = color.GetSaturation();
-            item.L = color.GetBrightness();
+            item.S = color.GetSaturation() * 100;
+            item.L = color.GetBrightness() * 100;
         }
 
         internal static Color ToColor(IHsl item)

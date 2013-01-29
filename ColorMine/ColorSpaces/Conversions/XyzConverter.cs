@@ -32,7 +32,12 @@ namespace ColorMine.ColorSpaces.Conversions
             g = g > 0.0031308 ? 1.055*Math.Pow(g, 1/2.4) - 0.055 : 12.92*g;
             b = b > 0.0031308 ? 1.055*Math.Pow(b, 1/2.4) - 0.055 : 12.92*b;
 
-            return Color.FromArgb(255, (int) (r*255), (int) (g*255), (int) (b*255));
+            return Color.FromArgb(255, ToRgb(r), ToRgb(g), ToRgb(b));
+        }
+
+        private static int ToRgb(double n)
+        {
+            return Math.Min(255, Math.Max(0, (int) (n*255)));
         }
 
         private static double PivotRgb(double n)

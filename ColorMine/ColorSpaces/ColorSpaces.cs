@@ -17,12 +17,12 @@ namespace ColorMine.ColorSpaces
 		public double G { get; set; }
 		public double B { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             RgbConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return RgbConverter.ToColor(this);
         }
@@ -41,12 +41,12 @@ namespace ColorMine.ColorSpaces
 		public double Y { get; set; }
 		public double Z { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             XyzConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return XyzConverter.ToColor(this);
         }
@@ -65,12 +65,12 @@ namespace ColorMine.ColorSpaces
 		public double S { get; set; }
 		public double L { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             HslConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return HslConverter.ToColor(this);
         }
@@ -89,12 +89,12 @@ namespace ColorMine.ColorSpaces
 		public double A { get; set; }
 		public double B { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             LabConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return LabConverter.ToColor(this);
         }
@@ -113,12 +113,12 @@ namespace ColorMine.ColorSpaces
 		public double X { get; set; }
 		public double Y2 { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             YxyConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return YxyConverter.ToColor(this);
         }
@@ -137,12 +137,12 @@ namespace ColorMine.ColorSpaces
 		public double M { get; set; }
 		public double Y { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             CmyConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return CmyConverter.ToColor(this);
         }
@@ -163,12 +163,12 @@ namespace ColorMine.ColorSpaces
 		public double Y { get; set; }
 		public double K { get; set; }
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             CmykConverter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return CmykConverter.ToColor(this);
         }

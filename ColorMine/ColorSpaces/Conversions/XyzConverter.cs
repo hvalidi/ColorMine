@@ -5,7 +5,7 @@ namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class XyzConverter
     {
-        internal static void ToColorSpace(Color color, IXyz item)
+        internal static void ToColorSpace(IRgb color, IXyz item)
         {
             var r = PivotRgb(color.R / 255.0);
             var g = PivotRgb(color.G / 255.0);
@@ -17,7 +17,7 @@ namespace ColorMine.ColorSpaces.Conversions
             item.Z = r*0.0193 + g*0.1192 + b*0.9505;
         }
 
-        internal static Color ToColor(IXyz item)
+        internal static IRgb ToColor(IXyz item)
         {
             // (Observer = 2°, Illuminant = D65)
             var x = item.X / 100;
@@ -32,7 +32,12 @@ namespace ColorMine.ColorSpaces.Conversions
             g = g > 0.0031308 ? 1.055*Math.Pow(g, 1/2.4) - 0.055 : 12.92*g;
             b = b > 0.0031308 ? 1.055*Math.Pow(b, 1/2.4) - 0.055 : 12.92*b;
 
-            return Color.FromArgb(255, ToRgb(r), ToRgb(g), ToRgb(b));
+            return new Rgb
+            {
+                R = ToRgb(r),
+                G = ToRgb(g),
+                B = ToRgb(b)
+            };
         }
 
         private static int ToRgb(double n)

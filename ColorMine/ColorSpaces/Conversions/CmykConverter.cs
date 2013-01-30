@@ -7,7 +7,7 @@ namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class CmykConverter
     {
-        internal static void ToColorSpace(Color color, ICmyk item)
+        internal static void ToColorSpace(IRgb color, ICmyk item)
         {
             var cmy = new Cmy();
             cmy.Initialize(color);
@@ -32,7 +32,7 @@ namespace ColorMine.ColorSpaces.Conversions
             }
         }
 
-        internal static Color ToColor(ICmyk item)
+        internal static IRgb ToColor(ICmyk item)
         {
             var cmy = new Cmy
                 {

@@ -5,14 +5,16 @@ namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class HslConverter
     {
-        internal static void ToColorSpace(Color color, IHsl item)
+        internal static void ToColorSpace(IRgb color, IHsl item)
         {
-            item.H = color.GetHue();
-            item.S = color.GetSaturation() * 100;
-            item.L = color.GetBrightness() * 100;
+            // TODO Losing precision
+            var msColor = Color.FromArgb((int)color.R, (int)color.G, (int)color.B);
+            item.H = msColor.GetHue();
+            item.S = msColor.GetSaturation() * 100;
+            item.L = msColor.GetBrightness() * 100;
         }
 
-        internal static Color ToColor(IHsl item)
+        internal static IRgb ToColor(IHsl item)
         {
             var rangedH = item.H/360.0;
             var r = 0.0;
@@ -35,7 +37,12 @@ namespace ColorMine.ColorSpaces.Conversions
                     b = GetColorComponent(temp1, temp2, rangedH - 1.0/3.0);
                 }
             }
-            return Color.FromArgb((int) (255*r), (int) (255*g), (int) (255*b));
+            return new Rgb
+                {
+                    R = 255*r,
+                    G = 255*g,
+                    B = 255*b
+                };
         }
 
         private static double GetColorComponent(double temp1, double temp2, double temp3)

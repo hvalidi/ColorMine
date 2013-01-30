@@ -21,12 +21,13 @@ namespace ColorMine.Test.ColorSpaces.Comparisons
             [TestMethod]
             public void ReturnsZeroForSameColors()
             {
+                var compareColor = new Rgb {R = 140, G = 130, B = 23};
                 // Todo, should be mocking!!
                 var a = new Rgb();
-                a.Initialize(Color.Red);
+                a.Initialize(compareColor);
 
                 var b = new Rgb();
-                b.Initialize(Color.Red);
+                b.Initialize(compareColor);
 
                 ReturnsExpectedValueForKnownInput(0.0, a, b);
             }

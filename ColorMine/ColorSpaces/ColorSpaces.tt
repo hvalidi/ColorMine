@@ -34,12 +34,12 @@ var points = space.SelectNodes("dataPoints/dataPoint");#>
 		public double <#=point.Attributes["label"].Value#> { get; set; }
 <# } #>
 
-        public override void Initialize(Color color)
+        public override void Initialize(IRgb color)
         {
             <#=spaceName#>Converter.ToColorSpace(color,this);
         }
 
-        public override Color ToColor()
+        public override IRgb ToColor()
         {
             return <#=spaceName#>Converter.ToColor(this);
         }

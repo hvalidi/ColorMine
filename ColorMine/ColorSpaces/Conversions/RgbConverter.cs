@@ -4,16 +4,16 @@ namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class RgbConverter
     {
-        internal static void ToColorSpace(Color color, IRgb item)
+        internal static void ToColorSpace(IRgb color, IRgb item)
         {
             item.R = color.R;
             item.G = color.G;
             item.B = color.B;
         }
 
-        internal static Color ToColor(IRgb item)
+        internal static IRgb ToColor(IRgb item)
         {
-            return Color.FromArgb(255, (int) item.R, (int) item.G, (int) item.B);
+            return item;
         }
     }
 }

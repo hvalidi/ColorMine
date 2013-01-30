@@ -10,7 +10,7 @@ namespace ColorMine.ColorSpaces.Conversions
         private const double RefY = 100.000;
         private const double RefZ = 108.883;
 
-        internal static void ToColorSpace(Color color, ILab item)
+        internal static void ToColorSpace(IRgb color, ILab item)
         {
             var xyz = new Xyz();
             xyz.Initialize(color);
@@ -24,7 +24,7 @@ namespace ColorMine.ColorSpaces.Conversions
             item.B = 200*(y - z);
         }
 
-        internal static Color ToColor(ILab item)
+        internal static IRgb ToColor(ILab item)
         {
             var y = (item.L + 16) / 116.0;
             var x = item.A / 500.0 + y;

@@ -11,13 +11,13 @@ namespace ColorMine.ColorSpaces
         ///     Initialize settings from a System.Drawing.Color object
         /// </summary>
         /// <param name="color">System.Drawing.Color</param>
-        void Initialize(Color color);
+        void Initialize(IRgb color);
 
         /// <summary>
         ///     Convert the color space to a System.Drawing.Color object
         /// </summary>
         /// <returns>System.Drawing.Color object</returns>
-        Color ToColor();
+        IRgb ToColor();
 
         /// <summary>
         ///     Convert any IColorSpace to any other IColorSpace
@@ -37,8 +37,8 @@ namespace ColorMine.ColorSpaces
 
     public abstract class ColorSpace : IColorSpace
     {
-        public abstract void Initialize(Color color);
-        public abstract Color ToColor();
+        public abstract void Initialize(IRgb color);
+        public abstract IRgb ToColor();
 
         public double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer)
         {
@@ -54,7 +54,7 @@ namespace ColorMine.ColorSpaces
 
             var newColorSpace = new T();
             newColorSpace.Initialize(ToColor());
-                // TODO I hate this call, could get rid of the Initialize method otherwise
+
             return newColorSpace;
         }
     }

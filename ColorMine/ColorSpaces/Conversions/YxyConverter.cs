@@ -27,7 +27,7 @@ namespace ColorMine.ColorSpaces.Conversions
                     Y = item.Y1,
                     Z = (1 - item.X - item.Y2) * (item.Y1 / item.Y2)
                 };
-            return xyz.ToColor();
+            return xyz.ToRgb();
         }
     }
 }

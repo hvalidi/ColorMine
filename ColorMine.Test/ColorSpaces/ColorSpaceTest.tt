@@ -14,14 +14,13 @@
 #>
 <#@ output extension=".cs" #>//Note: This is a generated file.
 using ColorMine.ColorSpaces;
-using ColorMine.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace ColorMine.Test.ColorSpaces
 {
 	public abstract class ColorSpaceTest
     {
-		private const double Precision = .01;
 <#
 	var fromSpace = colors[0];
 	var fromName = fromSpace.Name;
@@ -36,12 +35,21 @@ namespace ColorMine.Test.ColorSpaces
 		{
 			var target = knownColor.To<<#= toName #>>();
 
-			// TODO Shouldn't use ColorMine code to validate ColorMine code...
 <# foreach (XmlNode attribute in toSpace.Attributes) { if(attribute.Name != "Name") { #>
-			Assert.IsTrue(expectedColor.<#= attribute.Name #>.BasicallyEqualTo(target.<#= attribute.Name #>,Precision),"(<#= attribute.Name #>)" + expectedColor.<#= attribute.Name #> + " != " + target.<#= attribute.Name #>);
+			Assert.IsTrue(CloseEnough(expectedColor.<#= attribute.Name #>,target.<#= attribute.Name #>),"(<#= attribute.Name #>)" + expectedColor.<#= attribute.Name #> + " != " + target.<#= attribute.Name #>);
 <# } }#>
 		}
 <# } #>
+		private static bool CloseEnough(double a, double b)
+		{
+			// Define the tolerance for variation in their values 
+			var difference = Math.Abs(a * .01);
+
+			// Compare the values 
+			// The output to the console indicates that the two values are equal 
+			return Math.Abs(a - b) <= difference;
+		}
+
 	}
 
 }

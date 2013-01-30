@@ -8,16 +8,16 @@ namespace ColorMine.ColorSpaces
     public interface IColorSpace
     {
         /// <summary>
-        ///     Initialize settings from a System.Drawing.Color object
+        ///     Initialize settings from an Rgb object
         /// </summary>
         /// <param name="color">System.Drawing.Color</param>
         void Initialize(IRgb color);
 
         /// <summary>
-        ///     Convert the color space to a System.Drawing.Color object
+        ///     Convert the color space to a Rgb, you should probably using the "To" method instead.
         /// </summary>
         /// <returns>System.Drawing.Color object</returns>
-        IRgb ToColor();
+        IRgb ToRgb();
 
         /// <summary>
         ///     Convert any IColorSpace to any other IColorSpace
@@ -35,10 +35,15 @@ namespace ColorMine.ColorSpaces
         double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer);
     }
 
+    internal interface IColorConvertable
+    {
+        
+    }
+
     public abstract class ColorSpace : IColorSpace
     {
         public abstract void Initialize(IRgb color);
-        public abstract IRgb ToColor();
+        public abstract IRgb ToRgb();
 
         public double Compare(IColorSpace compareToValue, IColorSpaceComparison comparer)
         {
@@ -53,7 +58,7 @@ namespace ColorMine.ColorSpaces
             }
 
             var newColorSpace = new T();
-            newColorSpace.Initialize(ToColor());
+            newColorSpace.Initialize(ToRgb());
 
             return newColorSpace;
         }

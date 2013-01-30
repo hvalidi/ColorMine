@@ -41,7 +41,7 @@ namespace ColorMine.ColorSpaces.Conversions
                     Z = RefZ*z
                 };
 
-            return xyz.ToColor();
+            return xyz.ToRgb();
         }
 
         private static double PivotXyz(double n)

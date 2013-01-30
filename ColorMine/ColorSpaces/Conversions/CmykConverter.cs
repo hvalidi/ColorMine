@@ -41,7 +41,7 @@ namespace ColorMine.ColorSpaces.Conversions
                     Y = (item.Y*(1 - item.K) + item.K)
                 };
 
-            return cmy.ToColor();
+            return cmy.ToRgb();
         }
     }
 }

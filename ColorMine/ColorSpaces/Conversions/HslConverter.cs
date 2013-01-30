@@ -20,17 +20,19 @@ namespace ColorMine.ColorSpaces.Conversions
             var r = 0.0;
             var g = 0.0;
             var b = 0.0;
+            var s = item.S / 100;
+            var l = item.L/100;
 
-            if (!item.L.BasicallyEqualTo(0))
+            if (!l.BasicallyEqualTo(0))
             {
-                if (item.S.BasicallyEqualTo(0))
+                if (s.BasicallyEqualTo(0))
                 {
-                    r = g = b = item.L;
+                    r = g = b = l;
                 }
                 else
                 {
-                    var temp2 = (item.L < 0.5) ? item.L*(1.0 + item.S) : item.L + item.S - (item.L*item.S);
-                    var temp1 = 2.0*item.L - temp2;
+                    var temp2 = (l < 0.5) ? l*(1.0 + s) : l + s - (l*s);
+                    var temp1 = 2.0*l - temp2;
 
                     r = GetColorComponent(temp1, temp2, rangedH + 1.0/3.0);
                     g = GetColorComponent(temp1, temp2, rangedH);

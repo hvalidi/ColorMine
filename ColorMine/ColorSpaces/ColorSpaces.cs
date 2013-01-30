@@ -1,5 +1,4 @@
 ﻿//Note: This is a generated file.
-using System.Drawing;
 using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
@@ -22,7 +21,7 @@ namespace ColorMine.ColorSpaces
             RgbConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return RgbConverter.ToColor(this);
         }
@@ -46,7 +45,7 @@ namespace ColorMine.ColorSpaces
             XyzConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return XyzConverter.ToColor(this);
         }
@@ -70,7 +69,7 @@ namespace ColorMine.ColorSpaces
             HslConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return HslConverter.ToColor(this);
         }
@@ -94,7 +93,7 @@ namespace ColorMine.ColorSpaces
             LabConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return LabConverter.ToColor(this);
         }
@@ -118,7 +117,7 @@ namespace ColorMine.ColorSpaces
             YxyConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return YxyConverter.ToColor(this);
         }
@@ -142,7 +141,7 @@ namespace ColorMine.ColorSpaces
             CmyConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return CmyConverter.ToColor(this);
         }
@@ -168,7 +167,7 @@ namespace ColorMine.ColorSpaces
             CmykConverter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return CmykConverter.ToColor(this);
         }

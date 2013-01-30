@@ -353,7 +353,7 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToRgb()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
 				var expectedColor = new Rgb { R = 240, G = 248, B = 255, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
@@ -362,7 +362,7 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToLab()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
 				var expectedColor = new Lab { L = 97.179, A = -1.343, B = -4.273, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
@@ -371,7 +371,7 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToXyz()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
 				var expectedColor = new Xyz { X = 87.553, Y = 92.880, Z = 107.921, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
@@ -380,7 +380,7 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToCmy()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
 				var expectedColor = new Cmy { C = .05882, M = .02745, Y = 0, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
@@ -389,7 +389,7 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToCmyk()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
 				var expectedColor = new Cmyk { C = .05882, M = .02745, Y = 0, K = 0, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
@@ -398,7 +398,7 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToYxy()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
 				var expectedColor = new Yxy { Y1 = 92.880, X = .30363, Y2 = .32210, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
@@ -407,8 +407,8 @@ namespace ColorMine.Test.ColorSpaces
 			[TestMethod]
             public void AliceBlueHslToHsl()
             {
-				var knownColor = new Hsl { H = 208, S = 1, L = .97, };
-				var expectedColor = new Hsl { H = 208, S = 1, L = .97, };
+				var knownColor = new Hsl { H = 208, S = 100, L = 97, };
+				var expectedColor = new Hsl { H = 208, S = 100, L = 97, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }

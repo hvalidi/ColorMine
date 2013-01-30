@@ -13,7 +13,6 @@
 	var colorSpaces = document.SelectNodes("colorSpaces/colorSpace");
 #>
 <#@ output extension=".cs" #>//Note: This is a generated file.
-using System.Drawing;
 using ColorMine.ColorSpaces.Conversions;
 
 namespace ColorMine.ColorSpaces
@@ -39,7 +38,7 @@ var points = space.SelectNodes("dataPoints/dataPoint");#>
             <#=spaceName#>Converter.ToColorSpace(color,this);
         }
 
-        public override IRgb ToColor()
+        public override IRgb ToRgb()
         {
             return <#=spaceName#>Converter.ToColor(this);
         }

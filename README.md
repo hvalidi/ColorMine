@@ -8,7 +8,7 @@ You can do stuff like easily convert between colors spaces like Rgb, Hsl, Xyz, Y
 ```c#
 var startingRgb = new Rgb { R = 149, G = 13, B = 12 }
 var cmy = startingColor.To<Cmy>();
-'''
+```
 
 Online example at http://colormine.org/color-converter
 

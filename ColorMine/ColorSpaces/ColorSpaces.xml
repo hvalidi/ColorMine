@@ -28,6 +28,13 @@
       <dataPoint label="B" min="-128" max="128"/>
     </dataPoints>
   </colorSpace>
+  <colorSpace name="Lch" description="CIE Lch">
+    <dataPoints>
+      <dataPoint label="L" min="0" max="100"/>
+      <dataPoint label="C" min="0" max="100"/>
+      <dataPoint label="H" min="0" max="360"/>
+    </dataPoints>
+  </colorSpace>
   <colorSpace name="Yxy">
     <dataPoints>
       <dataPoint label="Y1"/>

@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace ColorMine.ColorSpaces.Conversions
+﻿namespace ColorMine.ColorSpaces.Conversions
 {
     internal static class CmyConverter
     {
@@ -15,9 +13,9 @@ namespace ColorMine.ColorSpaces.Conversions
         {
             return new Rgb
                 {
-                    R = (1 - item.C)*255,
-                    G = (1 - item.M)*255,
-                    B = (1 - item.Y)*255
+                    R = (1 - item.C) * 255.0,
+                    G = (1 - item.M) * 255.0,
+                    B = (1 - item.Y) * 255.0
                 };
         }
     }

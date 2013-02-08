@@ -99,6 +99,30 @@ namespace ColorMine.ColorSpaces
         }
     }
 
+	public interface ILch : IColorSpace
+    {
+		double L { get; set; }
+		double C { get; set; }
+		double H { get; set; }
+    }
+
+    public class Lch : ColorSpace, ILch
+    {
+		public double L { get; set; }
+		public double C { get; set; }
+		public double H { get; set; }
+
+        public override void Initialize(IRgb color)
+        {
+            LchConverter.ToColorSpace(color,this);
+        }
+
+        public override IRgb ToRgb()
+        {
+            return LchConverter.ToColor(this);
+        }
+    }
+
 	public interface IYxy : IColorSpace
     {
 		double Y1 { get; set; }

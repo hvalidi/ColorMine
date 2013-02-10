@@ -123,7 +123,7 @@ namespace ColorMine.Test.ColorSpaces
             public void BlackRgbToLch()
             {
 				var knownColor = new Rgb { R = 0, G = 0, B = 0, };
-				var expectedColor = new Lch { L = 0, C = 0, H = 360, };
+				var expectedColor = new Lch { L = 0, C = 0, H = 0, };
 
                 ExpectedValuesForKnownColor(knownColor,expectedColor);
             }

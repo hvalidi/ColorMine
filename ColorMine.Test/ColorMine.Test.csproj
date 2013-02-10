@@ -60,12 +60,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColorSpaceTest.tt</DependentUpon>
     </Compile>
+    <Compile Include="ColorSpaces\Comparisons\CmcComparisonTest.cs" />
     <Compile Include="ColorSpaces\ConversionTests.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConversionTests.tt</DependentUpon>
     </Compile>
-    <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
+    <Compile Include="ColorSpaces\Comparisons\Cie1976ComparisonTest.cs" />
     <Compile Include="Utility\DoubleExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using ColorMine.ColorSpaces;
+﻿using ColorMine.ColorSpaces;
 using ColorMine.ColorSpaces.Comparisons;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ColorMine.Utility;

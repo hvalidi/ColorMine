@@ -9,7 +9,7 @@ namespace ColorMine.ColorSpaces.Comparisons
             var a = colorA.To<Lab>();
             var b = colorB.To<Lab>();
 
-            double differences = Distance(a.L, b.L) + Distance(a.A, b.A) + Distance(a.B, b.B);
+            var differences = Distance(a.L, b.L) + Distance(a.A, b.A) + Distance(a.B, b.B);
             return Math.Sqrt(differences);
         }
 

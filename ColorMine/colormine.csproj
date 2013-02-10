@@ -47,6 +47,7 @@
       <DependentUpon>ColorSpaces.tt</DependentUpon>
     </Compile>
     <Compile Include="ColorSpaces\Comparisons\Cie1976Comparison.cs" />
+    <Compile Include="ColorSpaces\Comparisons\CmcComparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IDeltaEComparison.cs" />
     <Compile Include="ColorSpaces\Comparisons\IColorSpaceComparison.cs" />
     <Compile Include="ColorSpaces\Conversions\CmyConverter.cs" />

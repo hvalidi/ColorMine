@@ -4,12 +4,15 @@ namespace ColorMine.ColorSpaces.Comparisons
 {
     public class CmcComparison : IDeltaEComparison
     {
-        public const double DefaultRatio = 2.0;
-        public double Ratio = DefaultRatio;
+        public const double DefaultLightness = 2.0;
+        public const double DefaultChroma = 1.0;
 
-        public CmcComparison(double ratio = DefaultRatio)
+        public double Lightness = DefaultLightness;
+        public double Chroma = DefaultChroma;
+
+        public CmcComparison(double lightness = DefaultLightness, double chroma = DefaultChroma)
         {
-            Ratio = ratio;
+            Lightness = lightness;
         }
 
         public double Compare(IColorSpace colorA, IColorSpace colorB)
@@ -18,7 +21,7 @@ namespace ColorMine.ColorSpaces.Comparisons
             var aLab = colorA.To<Lab>();
             var bLab = colorB.To<Lab>();
 
-            var deltaL = aLab.L - aLab.L;
+            var deltaL = aLab.L - bLab.L;
             var h = Math.Atan2(aLab.B,aLab.A);
 
             var c1 = Math.Sqrt(Math.Pow(aLab.A, 2) + Math.Pow(aLab.B, 2));
@@ -36,8 +39,8 @@ namespace ColorMine.ColorSpaces.Comparisons
             var sC = (.0638 * c1) / (1 + .0131 * c1) + .638;
             var sH = sC*(f*t + 1 - f);
 
-            var differences = DistanceDivided(deltaL, Ratio * sL) +
-                              DistanceDivided(deltaC,sC) +
+            var differences = DistanceDivided(deltaL, Lightness * sL) +
+                              DistanceDivided(deltaC, Chroma * sC) +
                               DistanceDivided(deltaH, sH);
 
             return Math.Sqrt(differences);

@@ -35,7 +35,7 @@ namespace ColorMine.Test.ColorSpaces.Comparisons
                     B = 67.2200
                 };
 
-                ReturnsExpectedValueForKnownInput(42.330795, 2, a, b);
+                ReturnsExpectedValueForKnownInput(24.143033, 2, a, b);
             }
 
 
@@ -57,7 +57,7 @@ namespace ColorMine.Test.ColorSpaces.Comparisons
                     B = 67.2200
                 };
 
-                ReturnsExpectedValueForKnownInput(24.143033, 2, a, b);
+                ReturnsExpectedValueForKnownInput(42.330795, 1, a, b);
             }
 
             [TestMethod]
@@ -78,7 +78,7 @@ namespace ColorMine.Test.ColorSpaces.Comparisons
                     B = 6.8160
                 };
 
-                ReturnsExpectedValueForKnownInput(25.077100, 2, a, b);
+                ReturnsExpectedValueForKnownInput(24.406318, 2, a, b);
             }
 
             [TestMethod]
@@ -99,7 +99,7 @@ namespace ColorMine.Test.ColorSpaces.Comparisons
                     B = 6.8160
                 };
 
-                ReturnsExpectedValueForKnownInput(24.406, 1, a, b);
+                ReturnsExpectedValueForKnownInput(25.103175, 1, a, b);
             }
         }
     }

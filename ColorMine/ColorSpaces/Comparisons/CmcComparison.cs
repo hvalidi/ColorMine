@@ -7,17 +7,23 @@ namespace ColorMine.ColorSpaces.Comparisons
         public const double DefaultLightness = 2.0;
         public const double DefaultChroma = 1.0;
 
-        public double Lightness = DefaultLightness;
-        public double Chroma = DefaultChroma;
+        private readonly double _lightness;
+        private readonly double _chroma;
+
+        public CmcComparison()
+        {
+            _lightness = DefaultLightness;
+            _chroma = DefaultChroma;
+        }
 
         public CmcComparison(double lightness = DefaultLightness, double chroma = DefaultChroma)
         {
-            Lightness = lightness;
+            _lightness = lightness;
+            _chroma = chroma;
         }
 
         public double Compare(IColorSpace colorA, IColorSpace colorB)
         {
-            // TODO Where does the weight fit in?
             var aLab = colorA.To<Lab>();
             var bLab = colorB.To<Lab>();
 
@@ -28,7 +34,7 @@ namespace ColorMine.ColorSpaces.Comparisons
             var c2 = Math.Sqrt(Math.Pow(bLab.A, 2) + Math.Pow(bLab.B, 2));
             var deltaC = c1 - c2;
 
-            var deltaH = Math.Sqrt(Math.Pow(aLab.A - aLab.A, 2) + Math.Pow(aLab.B - aLab.B, 2) - deltaC);
+            var deltaH = Math.Sqrt(Math.Pow(aLab.A - bLab.A, 2) + Math.Pow(aLab.B - bLab.B, 2) - Math.Pow(deltaC,2));
 
             var t = 164 <= h || h >= 345
                         ? .56 + Math.Abs(.2*Math.Cos(h + 168.0))
@@ -39,16 +45,11 @@ namespace ColorMine.ColorSpaces.Comparisons
             var sC = (.0638 * c1) / (1 + .0131 * c1) + .638;
             var sH = sC*(f*t + 1 - f);
 
-            var differences = DistanceDivided(deltaL, Lightness * sL) +
-                              DistanceDivided(deltaC, Chroma * sC) +
+            var differences = DistanceDivided(deltaL, _lightness * sL) +
+                              DistanceDivided(deltaC, _chroma * sC) +
                               DistanceDivided(deltaH, sH);
 
             return Math.Sqrt(differences);
-        }
-
-        private static double DistanceDivided(double a, double b, double dividend)
-        {
-            return Math.Pow((a - b) / dividend, 2);
         }
 
         private static double DistanceDivided(double a, double dividend)

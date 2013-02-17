@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Itemizers\Adapters\BitmapAdapterTest.cs" />
     <Compile Include="Itemizers\GifItemizerTest.cs" />
     <Compile Include="Itemizers\PercentagePaletteInventoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

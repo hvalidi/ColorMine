@@ -8,7 +8,7 @@ namespace ColorMine.Search.Itemizers
     /// <summary>
     /// Converts an image into an IColorCatalog by converting to a gif and returning the converted colors
     /// </summary>
-    public sealed class GifItemizer : IItemizer
+    public sealed class GifItemizer : IItemizerStrategy
     {
         public T Itemize<T>(IImage image) where T : ICatalog, new()
         {

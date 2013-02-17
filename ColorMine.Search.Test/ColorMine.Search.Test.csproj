@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97D04F57-9DEC-41A2-9904-69C9C43EBD20}</ProjectGuid>
+    <ProjectGuid>{E5E075E5-26A3-484C-84A7-C169B3CEEF00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ColorMine.Search</RootNamespace>
-    <AssemblyName>ColorMine.Search</AssemblyName>
+    <RootNamespace>ColorMine.Search.Test</RootNamespace>
+    <AssemblyName>ColorMine.Search.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ColorMine\ColorMine.Test\Lib\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -40,15 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Itemizers\Adapters\BitmapAdapter.cs" />
-    <Compile Include="Itemizers\PercentagePaletteInventory.cs" />
-    <Compile Include="Itemizers\GifItemizer.cs" />
-    <Compile Include="Itemizers\IPaletteInventory.cs" />
-    <Compile Include="Itemizers\IImage.cs" />
-    <Compile Include="Itemizers\IItemizerStrategy.cs" />
+    <Compile Include="Itemizers\PercentagePaletteInventoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ColorMine.Search\ColorMine.Search.csproj">
+      <Project>{97d04f57-9dec-41a2-9904-69c9c43ebd20}</Project>
+      <Name>ColorMine.Search</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\Moq.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

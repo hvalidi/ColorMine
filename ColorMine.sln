@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMine.Test", "ColorMine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMine.Search", "ColorMine.Search\ColorMine.Search.csproj", "{97D04F57-9DEC-41A2-9904-69C9C43EBD20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMine.Search.Test", "ColorMine.Search.Test\ColorMine.Search.Test.csproj", "{E5E075E5-26A3-484C-84A7-C169B3CEEF00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{97D04F57-9DEC-41A2-9904-69C9C43EBD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97D04F57-9DEC-41A2-9904-69C9C43EBD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97D04F57-9DEC-41A2-9904-69C9C43EBD20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E075E5-26A3-484C-84A7-C169B3CEEF00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E075E5-26A3-484C-84A7-C169B3CEEF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E075E5-26A3-484C-84A7-C169B3CEEF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E075E5-26A3-484C-84A7-C169B3CEEF00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

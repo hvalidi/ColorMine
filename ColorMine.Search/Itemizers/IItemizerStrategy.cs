@@ -1,6 +1,6 @@
 ﻿namespace ColorMine.Search.Itemizers
 {
-    interface IItemizer
+    interface IItemizerStrategy
     {
         T Itemize<T>(IImage image) where T : ICatalog, new();
     }

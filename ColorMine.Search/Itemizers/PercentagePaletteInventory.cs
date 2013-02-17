@@ -12,7 +12,14 @@ namespace ColorMine.Search.Itemizers
             set
             {
                 var items = new Dictionary<Color, double>();
-                var increment = 1/(value.Width*value.Height);
+
+                if (value.Width == 0 || value.Height == 0)
+                {
+                    Items = items;
+                    return;
+                }
+
+                var increment = 1.0/(value.Width * value.Height);
                 for (var y = 0; y < value.Height; y++)
                 {
                     for (var x = 0; x < value.Width; x++)

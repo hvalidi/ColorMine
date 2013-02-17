@@ -4,7 +4,7 @@ using System.IO;
 
 namespace ColorMine.Search.Itemizers.Adapters
 {
-    sealed class BitmapAdapter : IImage
+    internal sealed class BitmapAdapter : IImage
     {
         private readonly Bitmap _image;
         internal BitmapAdapter(Bitmap image)

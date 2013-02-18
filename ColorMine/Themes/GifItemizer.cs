@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using ColorMine.Search.Itemizers.Adapters;
+using ColorMine.Themes.Adapters;
 
-namespace ColorMine.Search.Itemizers
+namespace ColorMine.Themes
 {
     /// <summary>
     /// Converts an image into an IColorCatalog by converting to a gif and returning the converted colors

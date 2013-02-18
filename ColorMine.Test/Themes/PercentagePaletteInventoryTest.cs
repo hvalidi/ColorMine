@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
-using ColorMine.Search.Itemizers;
+using ColorMine.Themes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ColorMine.Search.Test.Itemizers
+namespace ColorMine.Test.Themes
 {
     class PercentagePaletteInventoryTest
     {

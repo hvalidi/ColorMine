@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using ColorMine.Search.Itemizers.Adapters;
+using ColorMine.Themes.Adapters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ColorMine.Search.Test.Itemizers.Adapters
+namespace ColorMine.Test.Themes.Adapters
 {
     class BitmapAdapterTest
     {

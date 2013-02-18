@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
-using ColorMine.Search.Itemizers;
-using ColorMine.Search.Itemizers.Adapters;
+using ColorMine.Themes;
+using ColorMine.Themes.Adapters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ColorMine.Search.Test.Itemizers
+namespace ColorMine.Test.Themes
 {
     public class GifItemizerTest
     {

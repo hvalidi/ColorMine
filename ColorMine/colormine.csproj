@@ -55,6 +55,12 @@
     <Compile Include="ColorSpaces\Conversions\HslConverter.cs" />
     <Compile Include="ColorSpaces\Conversions\LchConverter.cs" />
     <Compile Include="ColorSpaces\Conversions\YxyConverter.cs" />
+    <Compile Include="Themes\Adapters\BitmapAdapter.cs" />
+    <Compile Include="Themes\GifItemizer.cs" />
+    <Compile Include="Themes\IImage.cs" />
+    <Compile Include="Themes\IItemizerStrategy.cs" />
+    <Compile Include="Themes\IPaletteInventory.cs" />
+    <Compile Include="Themes\PercentagePaletteInventory.cs" />
     <Compile Include="Utility\DoubleExtension.cs" />
     <Compile Include="ColorSpaces\Conversions\LabConverter.cs" />
     <Compile Include="ColorSpaces\Conversions\RgbConverter.cs" />

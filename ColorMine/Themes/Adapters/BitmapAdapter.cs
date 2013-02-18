@@ -2,7 +2,7 @@
 using System.Drawing.Imaging;
 using System.IO;
 
-namespace ColorMine.Search.Itemizers.Adapters
+namespace ColorMine.Themes.Adapters
 {
     internal sealed class BitmapAdapter : IImage
     {

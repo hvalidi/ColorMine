@@ -67,6 +67,9 @@
       <DependentUpon>ConversionTests.tt</DependentUpon>
     </Compile>
     <Compile Include="ColorSpaces\Comparisons\Cie1976ComparisonTest.cs" />
+    <Compile Include="Themes\Adapters\BitmapAdapterTest.cs" />
+    <Compile Include="Themes\GifItemizerTest.cs" />
+    <Compile Include="Themes\PercentagePaletteInventoryTest.cs" />
     <Compile Include="Utility\DoubleExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

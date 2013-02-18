@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace ColorMine.Search.Itemizers
+namespace ColorMine.Themes
 {
     public sealed class PercentagePaletteInventory : ICatalog
     {

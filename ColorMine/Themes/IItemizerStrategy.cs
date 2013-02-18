@@ -1,4 +1,4 @@
-﻿namespace ColorMine.Search.Itemizers
+﻿namespace ColorMine.Themes
 {
     interface IItemizerStrategy
     {

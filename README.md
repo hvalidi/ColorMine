@@ -1,7 +1,7 @@
 ColorMine
 =========
 
-.Net library intended to make working with colors easy.
+MIT Licensed .Net library intended to make working with colors easy.
 
 You can do stuff like easily convert between colors spaces like Rgb, Hsl, Xyz, Yyz, Cmy, Cmyk, and CIE*Lab. More spaces supported soon!
 

@@ -16,10 +16,10 @@ You can also calculate delta-e, it's currently a bit awkward but undergoing rapi
 
 CIE76 http://colormine.org/delta-e-calculator/
 ```c#
-var deltaE = startingRgb.Compare(cmy,new Cie1976Comparison);
+var deltaE = startingRgb.Compare(cmy,new Cie1976Comparison());
 ```
 
 CMC l:C http://colormine.org/delta-e-calculator/cmc
 ```c#
-var deltaE = startingRgb.Compare(cmy,new CmcComparison, lightness: 2, chroma: 1);
+var deltaE = startingRgb.Compare(cmy,new CmcComparison(lightness: 2, chroma: 1));
 ```

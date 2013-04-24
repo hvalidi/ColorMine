@@ -21,5 +21,5 @@ var deltaE = startingRgb.Compare(cmy,new Cie1976Comparison);
 
 CMC l:C http://colormine.org/delta-e-calculator/cmc
 ```c#
-var deltaE = startingRgb.Compare(cmy,new Cie1976Comparison, lightness: 2, chroma: 1);
+var deltaE = startingRgb.Compare(cmy,new CmcComparison, lightness: 2, chroma: 1);
 ```
